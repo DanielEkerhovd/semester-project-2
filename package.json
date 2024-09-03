@@ -1,0 +1,15 @@
+{
+  "name": "semester-project-2",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Daniel Ekerhovd",
+  "license": "ISC",
+  "description": "2nd semester project in Frontend Development @ Noroff, creating an auction website for a client using HTML, TailwindCSS and Vanilla js",
+  "devDependencies": {
+    "tailwindcss": "^3.4.10"
+  }
+}
