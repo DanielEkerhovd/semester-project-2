@@ -13,7 +13,13 @@
     "dev": "npm-run-all --parallel build watch start",
     "prepare": "husky install"
   },
-  "keywords": [],
+  "keywords": [
+    "auction",
+    "website",
+    "frontend",
+    "development",
+    "noroff"
+  ],
   "author": "Daniel Ekerhovd",
   "license": "ISC",
   "description": "2nd semester project in Frontend Development @ Noroff, creating an auction website for a client using HTML, TailwindCSS and Vanilla js",
