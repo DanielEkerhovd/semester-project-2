@@ -1,14 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="dist/css/tailwind-output.css">
-</head>
-<body class="bg-blue-500 w-full m-auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Landing page for an auction website called BIDR"
+    />
+    <title>BIDR | Homepage</title>
+    <link rel="icon" href="/src/media/logo/Logo.png" />
+    <link rel="stylesheet" href="dist/css/tailwind-output.css" />
+  </head>
+  <body class="bg-bg-color">
+    <header class="mt-5 w-11/12 m-auto">
+      <!-- Upper header -->
+      <div class="flex justify-between h-full">
+        <a href="./">
+          <img src="/src/media/logo/Logo.png" alt="BIDR logo" class="h-full" />
+        </a>
+        <!-- Nav icons and economy -->
+        <div class="flex items-center gap-2">
+          <p id="current_wallet" class="font-text font-semibold text-sm">
+            1000$
+          </p>
+          <!-- Is gonna link to profile.html -->
+          <a href="#">
+            <img
+              src="/src/media/icons/profile.png"
+              alt="Profile icon"
+              class="size-9"
+            />
+          </a>
+        </div>
+      </div>
+      <!-- Search bar -->
+      <div class="flex justify-center items-center mt-5">
+        <input
+          type="text"
+          placeholder="Search for an item"
+          class="w-full h-12 rounded-sm px-3 bg-input-field"
+        />
 
-    <h1 class="mt-2 w-full text-center text-4xl text-green-100">Hello</h1>
-    
-</body>
+        <button
+          type="submit"
+          class="absolute right-6 size-9 bg-highlight rounded-sm flex justify-center items-center"
+        >
+          <img
+            src="/src/media/icons/search.png"
+            alt="Search icon"
+            class="size-6"
+          />
+        </button>
+      </div>
+    </header>
+  </body>
 </html>
