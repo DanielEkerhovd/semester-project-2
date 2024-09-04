@@ -48,23 +48,27 @@
         </div>
         <!-- Nav icons and economy -->
         <nav class="flex items-center gap-2 ml-auto">
-          <p id="current_wallet" class="font-text font-semibold text-sm">
-            1000$
-          </p>
-          <!-- Is gonna link to profile.html -->
-          <a href="#">
-            <img
-              src="/src/media/icons/hotbar/profile-b.png"
-              alt="Profile icon"
-              class="size-9"
-            />
-          </a>
+          <div class="flex items-center gap-2">
+            <p id="current_wallet" class="font-text font-semibold text-sm">
+              1000$
+            </p>
+            <!-- Is gonna link to profile.html -->
+            <a href="#">
+              <img
+                src="/src/media/icons/hotbar/profile-b.png"
+                alt="Profile icon"
+                class="size-9"
+              />
+            </a>
+          </div>
         </nav>
       </div>
     </header>
-    <main class="w-11/12 xl:max-w-7xl m-auto flex flex-col gap-5 my-5">
+    <main
+      class="w-11/12 lg:mt-10 xl:max-w-7xl m-auto flex flex-col gap-5 lg:gap-20 my-5"
+    >
       <!-- Categories -->
-      <section class="flex gap-2 justify-between min-h-36">
+      <section class="flex gap-2 justify-between min-h-36 lg:-mb-10">
         <!-- Small Categories -->
         <div class="flex flex-wrap justify-between gap-2 grow">
           <a
@@ -97,7 +101,7 @@
         <!-- Browse -->
         <a
           href="#"
-          class="bg-highlight min-w-24 flex justify-center items-center grow"
+          class="bg-highlight min-w-24 max-w-sm flex justify-center items-center grow"
         >
           <p class="font-text font-semibold text-lg text-center">Browse</p>
         </a>
@@ -105,16 +109,16 @@
       <!-- Last chance listings -->
       <section class="flex flex-col gap-3">
         <div>
-          <h2>LAST CHANCE</h2>
+          <h2 class="lg:text-3xl">LAST CHANCE</h2>
           <div class="bg-black h-1 w-full rounded-sm"></div>
         </div>
         <!-- Last chance listings -->
         <div class="flex flex-col gap-3">
           <a href="#" class="flex flex-col gap-3">
             <!-- Hero -->
-            <div class="h-36">
+            <div class="h-36 sm:h-48 md:h-52 lg:h-64">
               <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
-                <p class="text-white font-text font-light text-xl">
+                <p class="text-white font-text font-light text-xl lg:text-2xl">
                   Brown dog hat
                 </p>
               </div>
@@ -127,86 +131,611 @@
             <!-- Info -->
             <div class="flex justify-between">
               <!-- Bidding -->
-              <div class="flex gap-1 justify-between">
-                <button class="bg-highlight p-2 rounded-sm w-16 min-w-24">
+              <div class="flex gap-5 justify-between">
+                <button
+                  class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
+                >
                   BID
                 </button>
                 <div class="">
-                  <p class="font-text text-faded text-sm">Current bid</p>
-                  <p id="latest_bid" class="font-text font-semibold text-lg">
+                  <p class="font-text text-faded text-sm lg:text-lg">
+                    Current bid
+                  </p>
+                  <p
+                    id="latest_bid"
+                    class="font-text font-semibold text-lg lg:text-2xl"
+                  >
                     28$
                   </p>
                 </div>
               </div>
               <!-- Time -->
               <div class="">
-                <p class="font-text text-faded text-end text-sm">Time left</p>
+                <p class="font-text text-faded text-end text-sm lg:text-lg">
+                  Time left
+                </p>
                 <div id="time_left" class="flex gap-1">
-                  <p id="days_left" class="font-text text-sm">1d</p>
-                  <p id="hours_left" class="font-text text-sm">12h</p>
-                  <p id="minutes_left" class="font-text text-sm">30m</p>
-                  <p id="minutes_left" class="font-text text-sm">28s</p>
+                  <p id="days_left" class="font-text text-sm lg:text-lg">1d</p>
+                  <p id="hours_left" class="font-text text-sm lg:text-lg">
+                    12h
+                  </p>
+                  <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                    30m
+                  </p>
+                  <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                    28s
+                  </p>
                 </div>
               </div>
             </div>
           </a>
         </div>
       </section>
-      <!-- New listings -->
+      <!-- New -->
       <section class="flex flex-col gap-3">
         <div>
-          <h2>NEW LISTINGS</h2>
+          <h2 class="lg:text-3xl">NEW LISTINGS</h2>
           <div class="bg-black h-1 w-full rounded-sm"></div>
         </div>
         <!-- Newest listings -->
-        <div class="flex flex-col gap-3">
-          <a href="#" class="flex flex-col gap-3">
-            <!-- Hero -->
-            <div class="h-36">
-              <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
-                <p class="text-white font-text font-light text-xl">
-                  Brown dog hat
-                </p>
-              </div>
-              <img
-                src="./src/media/placeholderimg.png"
-                alt="Placeholder image"
-                class="h-full w-full object-cover"
-              />
-            </div>
-            <!-- Info -->
-            <div class="flex justify-between">
-              <!-- Bidding -->
-              <div class="flex gap-1 justify-between">
-                <button class="bg-highlight p-2 rounded-sm w-16 min-w-24">
-                  BID
-                </button>
-                <div class="">
-                  <p class="font-text text-faded text-sm">Current bid</p>
-                  <p id="latest_bid" class="font-text font-semibold text-lg">
-                    28$
+        <div id="new_list" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div class="flex flex-col gap-3">
+            <a href="#" class="flex flex-col gap-3">
+              <!-- Hero -->
+              <div class="h-36 sm:h-48 md:h-52 lg:h-64">
+                <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
+                  <p
+                    class="text-white font-text font-light text-xl lg:text-2xl"
+                  >
+                    Brown dog hat
                   </p>
                 </div>
+                <img
+                  src="./src/media/placeholderimg.png"
+                  alt="Placeholder image"
+                  class="h-full w-full object-cover"
+                />
               </div>
-              <!-- Time -->
-              <div class="">
-                <p class="font-text text-faded text-end text-sm">Time left</p>
-                <div id="time_left" class="flex gap-1">
-                  <p id="days_left" class="font-text text-sm">1d</p>
-                  <p id="hours_left" class="font-text text-sm">12h</p>
-                  <p id="minutes_left" class="font-text text-sm">30m</p>
-                  <p id="minutes_left" class="font-text text-sm">28s</p>
+              <!-- Info -->
+              <div class="flex justify-between">
+                <!-- Bidding -->
+                <div class="flex gap-5 justify-between">
+                  <button
+                    class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
+                  >
+                    BID
+                  </button>
+                  <div class="">
+                    <p class="font-text text-faded text-sm lg:text-lg">
+                      Current bid
+                    </p>
+                    <p
+                      id="latest_bid"
+                      class="font-text font-semibold text-lg lg:text-2xl"
+                    >
+                      28$
+                    </p>
+                  </div>
+                </div>
+                <!-- Time -->
+                <div class="">
+                  <p class="font-text text-faded text-end text-sm lg:text-lg">
+                    Time left
+                  </p>
+                  <div id="time_left" class="flex gap-1">
+                    <p id="days_left" class="font-text text-sm lg:text-lg">
+                      1d
+                    </p>
+                    <p id="hours_left" class="font-text text-sm lg:text-lg">
+                      12h
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      30m
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      28s
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <a href="#" class="flex flex-col gap-3">
+              <!-- Hero -->
+              <div class="h-36 sm:h-48 md:h-52 lg:h-64">
+                <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
+                  <p
+                    class="text-white font-text font-light text-xl lg:text-2xl"
+                  >
+                    Brown dog hat
+                  </p>
+                </div>
+                <img
+                  src="./src/media/placeholderimg.png"
+                  alt="Placeholder image"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <!-- Info -->
+              <div class="flex justify-between">
+                <!-- Bidding -->
+                <div class="flex gap-5 justify-between">
+                  <button
+                    class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
+                  >
+                    BID
+                  </button>
+                  <div class="">
+                    <p class="font-text text-faded text-sm lg:text-lg">
+                      Current bid
+                    </p>
+                    <p
+                      id="latest_bid"
+                      class="font-text font-semibold text-lg lg:text-2xl"
+                    >
+                      28$
+                    </p>
+                  </div>
+                </div>
+                <!-- Time -->
+                <div class="">
+                  <p class="font-text text-faded text-end text-sm lg:text-lg">
+                    Time left
+                  </p>
+                  <div id="time_left" class="flex gap-1">
+                    <p id="days_left" class="font-text text-sm lg:text-lg">
+                      1d
+                    </p>
+                    <p id="hours_left" class="font-text text-sm lg:text-lg">
+                      12h
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      30m
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      28s
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href="#" class="flex flex-col gap-3">
+              <!-- Hero -->
+              <div class="h-36 sm:h-48 md:h-52 lg:h-64">
+                <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
+                  <p
+                    class="text-white font-text font-light text-xl lg:text-2xl"
+                  >
+                    Brown dog hat
+                  </p>
+                </div>
+                <img
+                  src="./src/media/placeholderimg.png"
+                  alt="Placeholder image"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <!-- Info -->
+              <div class="flex justify-between">
+                <!-- Bidding -->
+                <div class="flex gap-5 justify-between">
+                  <button
+                    class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
+                  >
+                    BID
+                  </button>
+                  <div class="">
+                    <p class="font-text text-faded text-sm lg:text-lg">
+                      Current bid
+                    </p>
+                    <p
+                      id="latest_bid"
+                      class="font-text font-semibold text-lg lg:text-2xl"
+                    >
+                      28$
+                    </p>
+                  </div>
+                </div>
+                <!-- Time -->
+                <div class="">
+                  <p class="font-text text-faded text-end text-sm lg:text-lg">
+                    Time left
+                  </p>
+                  <div id="time_left" class="flex gap-1">
+                    <p id="days_left" class="font-text text-sm lg:text-lg">
+                      1d
+                    </p>
+                    <p id="hours_left" class="font-text text-sm lg:text-lg">
+                      12h
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      30m
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      28s
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href="#" class="flex flex-col gap-3">
+              <!-- Hero -->
+              <div class="h-36 sm:h-48 md:h-52 lg:h-64">
+                <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
+                  <p
+                    class="text-white font-text font-light text-xl lg:text-2xl"
+                  >
+                    Brown dog hat
+                  </p>
+                </div>
+                <img
+                  src="./src/media/placeholderimg.png"
+                  alt="Placeholder image"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <!-- Info -->
+              <div class="flex justify-between">
+                <!-- Bidding -->
+                <div class="flex gap-5 justify-between">
+                  <button
+                    class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
+                  >
+                    BID
+                  </button>
+                  <div class="">
+                    <p class="font-text text-faded text-sm lg:text-lg">
+                      Current bid
+                    </p>
+                    <p
+                      id="latest_bid"
+                      class="font-text font-semibold text-lg lg:text-2xl"
+                    >
+                      28$
+                    </p>
+                  </div>
+                </div>
+                <!-- Time -->
+                <div class="">
+                  <p class="font-text text-faded text-end text-sm lg:text-lg">
+                    Time left
+                  </p>
+                  <div id="time_left" class="flex gap-1">
+                    <p id="days_left" class="font-text text-sm lg:text-lg">
+                      1d
+                    </p>
+                    <p id="hours_left" class="font-text text-sm lg:text-lg">
+                      12h
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      30m
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      28s
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href="#" class="flex flex-col gap-3">
+              <!-- Hero -->
+              <div class="h-36 sm:h-48 md:h-52 lg:h-64">
+                <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
+                  <p
+                    class="text-white font-text font-light text-xl lg:text-2xl"
+                  >
+                    Brown dog hat
+                  </p>
+                </div>
+                <img
+                  src="./src/media/placeholderimg.png"
+                  alt="Placeholder image"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <!-- Info -->
+              <div class="flex justify-between">
+                <!-- Bidding -->
+                <div class="flex gap-5 justify-between">
+                  <button
+                    class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
+                  >
+                    BID
+                  </button>
+                  <div class="">
+                    <p class="font-text text-faded text-sm lg:text-lg">
+                      Current bid
+                    </p>
+                    <p
+                      id="latest_bid"
+                      class="font-text font-semibold text-lg lg:text-2xl"
+                    >
+                      28$
+                    </p>
+                  </div>
+                </div>
+                <!-- Time -->
+                <div class="">
+                  <p class="font-text text-faded text-end text-sm lg:text-lg">
+                    Time left
+                  </p>
+                  <div id="time_left" class="flex gap-1">
+                    <p id="days_left" class="font-text text-sm lg:text-lg">
+                      1d
+                    </p>
+                    <p id="hours_left" class="font-text text-sm lg:text-lg">
+                      12h
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      30m
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      28s
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href="#" class="flex flex-col gap-3">
+              <!-- Hero -->
+              <div class="h-36 sm:h-48 md:h-52 lg:h-64">
+                <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
+                  <p
+                    class="text-white font-text font-light text-xl lg:text-2xl"
+                  >
+                    Brown dog hat
+                  </p>
+                </div>
+                <img
+                  src="./src/media/placeholderimg.png"
+                  alt="Placeholder image"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <!-- Info -->
+              <div class="flex justify-between">
+                <!-- Bidding -->
+                <div class="flex gap-5 justify-between">
+                  <button
+                    class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
+                  >
+                    BID
+                  </button>
+                  <div class="">
+                    <p class="font-text text-faded text-sm lg:text-lg">
+                      Current bid
+                    </p>
+                    <p
+                      id="latest_bid"
+                      class="font-text font-semibold text-lg lg:text-2xl"
+                    >
+                      28$
+                    </p>
+                  </div>
+                </div>
+                <!-- Time -->
+                <div class="">
+                  <p class="font-text text-faded text-end text-sm lg:text-lg">
+                    Time left
+                  </p>
+                  <div id="time_left" class="flex gap-1">
+                    <p id="days_left" class="font-text text-sm lg:text-lg">
+                      1d
+                    </p>
+                    <p id="hours_left" class="font-text text-sm lg:text-lg">
+                      12h
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      30m
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      28s
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href="#" class="flex flex-col gap-3">
+              <!-- Hero -->
+              <div class="h-36 sm:h-48 md:h-52 lg:h-64">
+                <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
+                  <p
+                    class="text-white font-text font-light text-xl lg:text-2xl"
+                  >
+                    Brown dog hat
+                  </p>
+                </div>
+                <img
+                  src="./src/media/placeholderimg.png"
+                  alt="Placeholder image"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <!-- Info -->
+              <div class="flex justify-between">
+                <!-- Bidding -->
+                <div class="flex gap-5 justify-between">
+                  <button
+                    class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
+                  >
+                    BID
+                  </button>
+                  <div class="">
+                    <p class="font-text text-faded text-sm lg:text-lg">
+                      Current bid
+                    </p>
+                    <p
+                      id="latest_bid"
+                      class="font-text font-semibold text-lg lg:text-2xl"
+                    >
+                      28$
+                    </p>
+                  </div>
+                </div>
+                <!-- Time -->
+                <div class="">
+                  <p class="font-text text-faded text-end text-sm lg:text-lg">
+                    Time left
+                  </p>
+                  <div id="time_left" class="flex gap-1">
+                    <p id="days_left" class="font-text text-sm lg:text-lg">
+                      1d
+                    </p>
+                    <p id="hours_left" class="font-text text-sm lg:text-lg">
+                      12h
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      30m
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      28s
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href="#" class="flex flex-col gap-3">
+              <!-- Hero -->
+              <div class="h-36 sm:h-48 md:h-52 lg:h-64">
+                <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
+                  <p
+                    class="text-white font-text font-light text-xl lg:text-2xl"
+                  >
+                    Brown dog hat
+                  </p>
+                </div>
+                <img
+                  src="./src/media/placeholderimg.png"
+                  alt="Placeholder image"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <!-- Info -->
+              <div class="flex justify-between">
+                <!-- Bidding -->
+                <div class="flex gap-5 justify-between">
+                  <button
+                    class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
+                  >
+                    BID
+                  </button>
+                  <div class="">
+                    <p class="font-text text-faded text-sm lg:text-lg">
+                      Current bid
+                    </p>
+                    <p
+                      id="latest_bid"
+                      class="font-text font-semibold text-lg lg:text-2xl"
+                    >
+                      28$
+                    </p>
+                  </div>
+                </div>
+                <!-- Time -->
+                <div class="">
+                  <p class="font-text text-faded text-end text-sm lg:text-lg">
+                    Time left
+                  </p>
+                  <div id="time_left" class="flex gap-1">
+                    <p id="days_left" class="font-text text-sm lg:text-lg">
+                      1d
+                    </p>
+                    <p id="hours_left" class="font-text text-sm lg:text-lg">
+                      12h
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      30m
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      28s
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href="#" class="flex flex-col gap-3">
+              <!-- Hero -->
+              <div class="h-36 sm:h-48 md:h-52 lg:h-64">
+                <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
+                  <p
+                    class="text-white font-text font-light text-xl lg:text-2xl"
+                  >
+                    Brown dog hat
+                  </p>
+                </div>
+                <img
+                  src="./src/media/placeholderimg.png"
+                  alt="Placeholder image"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <!-- Info -->
+              <div class="flex justify-between">
+                <!-- Bidding -->
+                <div class="flex gap-5 justify-between">
+                  <button
+                    class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
+                  >
+                    BID
+                  </button>
+                  <div class="">
+                    <p class="font-text text-faded text-sm lg:text-lg">
+                      Current bid
+                    </p>
+                    <p
+                      id="latest_bid"
+                      class="font-text font-semibold text-lg lg:text-2xl"
+                    >
+                      28$
+                    </p>
+                  </div>
+                </div>
+                <!-- Time -->
+                <div class="">
+                  <p class="font-text text-faded text-end text-sm lg:text-lg">
+                    Time left
+                  </p>
+                  <div id="time_left" class="flex gap-1">
+                    <p id="days_left" class="font-text text-sm lg:text-lg">
+                      1d
+                    </p>
+                    <p id="hours_left" class="font-text text-sm lg:text-lg">
+                      12h
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      30m
+                    </p>
+                    <p id="minutes_left" class="font-text text-sm lg:text-lg">
+                      28s
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
       <!-- More listings -->
-      <section class="bg-green-300">
-        <a href="#" class="sm:m-auto">
+      <section class="w-full">
+        <a href="#" class="m-auto w-full flex justify-center items-center">
           <button
-            class="bg-black text-white font-text font-medium p-2 rounded-sm h-14"
+            class="bg-black text-white font-text font-medium p-2 rounded-sm h-14 w-full md:max-w-60 xl:max-w-80 xl:text-xl"
           >
             More listings
           </button>
