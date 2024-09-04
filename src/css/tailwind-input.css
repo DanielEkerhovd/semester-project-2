@@ -20,3 +20,18 @@ input::placeholder {
     @apply font-text;
     @apply font-medium;
 };
+
+@layer base {
+
+    h2 {
+        @apply font-title;
+        @apply font-semibold;
+        @apply text-2xl
+    }
+
+    button {
+        @apply font-title;
+        @apply font-semibold;
+        @apply text-text-color;
+    }
+}
