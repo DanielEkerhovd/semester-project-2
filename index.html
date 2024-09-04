@@ -12,7 +12,7 @@
     <link rel="icon" href="/src/media/logo/Logo.png" />
     <link rel="stylesheet" href="dist/css/tailwind-output.css" />
   </head>
-  <body class="bg-bg-color">
+  <body class="bg-bg-color flex flex-col gap-5">
     <header class="mt-5 w-11/12 m-auto">
       <!-- Upper header -->
       <div class="flex justify-between h-full">
@@ -54,5 +54,46 @@
         </button>
       </div>
     </header>
+    <main class="bg-green-200 w-11/12 m-auto">
+      <!-- Categories -->
+      <section class="flex gap-2 justify-between min-h-36">
+        <!-- Small Categories -->
+        <div class="flex flex-wrap justify-between gap-2 grow">
+          <a
+            href="#"
+            class="bg-highlight flex items-center justify-center rounded-sm min-w-20 flex-grow p-1"
+          >
+            <p class="font-text font-semibold text-lg text-center">Cars</p>
+          </a>
+          <a
+            href="#"
+            class="bg-highlight flex items-center justify-center rounded-sm min-w-20 flex-grow p-1"
+          >
+            <p class="font-text font-semibold text-lg text-center">Clothing</p>
+          </a>
+          <a
+            href="#"
+            class="bg-highlight flex items-center justify-center rounded-sm min-w-20 flex-grow p-1"
+          >
+            <p class="font-text font-semibold text-lg text-center">Furniture</p>
+          </a>
+          <a
+            href="#"
+            class="bg-highlight flex items-center justify-center rounded-sm min-w-20 flex-grow p-1"
+          >
+            <p class="font-text font-semibold text-lg text-center">
+              Electronics
+            </p>
+          </a>
+        </div>
+        <!-- Browse -->
+        <a
+          href="#"
+          class="bg-highlight min-w-24 flex justify-center items-center grow"
+        >
+          <p class="font-text font-semibold text-lg text-center">Browse</p>
+        </a>
+      </section>
+    </main>
   </body>
 </html>
