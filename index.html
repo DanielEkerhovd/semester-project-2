@@ -13,14 +13,41 @@
     <link rel="stylesheet" href="dist/css/tailwind-output.css" />
   </head>
   <body class="bg-bg-color">
-    <header class="mt-5 w-11/12 m-auto">
+    <header class="mt-5 w-11/12 xl:max-w-7xl m-auto">
       <!-- Upper header -->
-      <div class="flex justify-between h-full">
-        <a href="./">
-          <img src="/src/media/logo/Logo.png" alt="BIDR logo" class="h-full" />
+      <div
+        class="flex justify-between lg:justify-start h-full flex-wrap items-center flex-grow gap-5"
+      >
+        <a href="./" class="bg-green-200">
+          <img
+            src="/src/media/logo/Logo.png"
+            alt="BIDR logo"
+            class="h-full object-contain"
+          />
         </a>
+        <!-- Search bar -->
+        <div
+          class="flex bg-green-300 justify-center items-center relative order-last md:order-none h-12 w-full max-w-2xl md:w-auto grow"
+        >
+          <input
+            type="text"
+            placeholder="Search for an item"
+            class="w-full h-full rounded-sm px-3 bg-input-field"
+          />
+
+          <button
+            type="submit"
+            class="absolute right-2 size-9 bg-highlight rounded-sm flex justify-center items-center"
+          >
+            <img
+              src="/src/media/icons/search.png"
+              alt="Search icon"
+              class="size-6"
+            />
+          </button>
+        </div>
         <!-- Nav icons and economy -->
-        <nav class="flex items-center gap-2">
+        <nav class="flex items-center gap-2 ml-auto">
           <p id="current_wallet" class="font-text font-semibold text-sm">
             1000$
           </p>
@@ -34,27 +61,8 @@
           </a>
         </nav>
       </div>
-      <!-- Search bar -->
-      <div class="flex justify-center items-center mt-5">
-        <input
-          type="text"
-          placeholder="Search for an item"
-          class="w-full h-12 rounded-sm px-3 bg-input-field"
-        />
-
-        <button
-          type="submit"
-          class="absolute right-6 size-9 bg-highlight rounded-sm flex justify-center items-center"
-        >
-          <img
-            src="/src/media/icons/search.png"
-            alt="Search icon"
-            class="size-6"
-          />
-        </button>
-      </div>
     </header>
-    <main class="w-11/12 m-auto flex flex-col gap-5 my-5">
+    <main class="w-11/12 xl:max-w-7xl m-auto flex flex-col gap-5 my-5">
       <!-- Categories -->
       <section class="flex gap-2 justify-between min-h-36">
         <!-- Small Categories -->
@@ -195,17 +203,17 @@
         </div>
       </section>
       <!-- More listings -->
-      <section>
-        <a href="#">
+      <section class="bg-green-300">
+        <a href="#" class="sm:m-auto">
           <button
-            class="bg-black text-white font-text font-medium p-2 rounded-sm w-full h-14"
+            class="bg-black text-white font-text font-medium p-2 rounded-sm h-14"
           >
             More listings
           </button>
         </a>
       </section>
       <!-- Hotbar -->
-      <footer class="bg-black rounded-lg h-12 sticky bottom-5">
+      <footer class="bg-black rounded-lg h-12 sticky bottom-5 md:hidden">
         <nav class="flex justify-between px-7 h-full w-full max-w-80 m-auto">
           <a href="#" class="h-full flex justify-center items-center">
             <img
