@@ -4,7 +4,7 @@
   const filterOptions = document.querySelectorAll('.filter-option');
 
   const buttonImage = document.createElement('img');
-    buttonImage.src = '/src/media/icons/filter.png';
+    buttonImage.src = '../src/media/icons/filter.png';
     buttonImage.alt = 'filter icon';
     buttonImage.classList.add('size-6', 'inline');
     filterButton.appendChild(buttonImage);
