@@ -15,7 +15,7 @@
       <div
         class="flex justify-between lg:justify-start h-full flex-wrap items-center flex-grow gap-5"
       >
-        <a href="../" class=" ">
+        <a href="/" class=" ">
           <img
             src="../src/media/logo/Logo.png"
             alt="BIDR logo"
@@ -45,14 +45,14 @@
         </div>
         <!-- Nav icons and economy -->
         <nav class="flex items-center gap-2 ml-auto">
-          <a href="#">
+          <a href="#" class="hidden md:block">
             <img
               src="../src/media/icons/hotbar/browse-b.png"
               alt="Browse icon"
               class="size-9"
             />
           </a>
-          <a href="#">
+          <a href="#" class="hidden md:block">
             <img
               src="../src/media/icons/hotbar/create-b.png"
               alt="Create new listing icon"
@@ -83,20 +83,20 @@
         <div class="">
           <button
             id="filter_button"
-            class="bg-highlight p-2 rounded-sm w-24 lg:w-32 min-w-24 lg:text-xl"
+            class="bg-highlight p-3 rounded-sm flex justify-between items-center min-w-32 sm:min-w-44"
           >
             Featured
           </button>
           <div
             id="filter_dropdown"
-            class="relative top-12 right-0 rounded-lg shadow-lg bg-highlight"
+            class="relative top-5 right-0 mb-5 rounded-lg shadow-lg transition w-full sm:w-44 min-w-24"
           >
-            <ul class="flex flex-col gap-2 p-2 bg-white">
+            <ul class="flex flex-col gap-3 p-2 bg-black text-white">
               <li>
                 <a
                   href="#"
-                  class="font-text font-semibold text-lg filter-option"
-                  data-value="All"
+                  class="font-text font-medium text-lg filter-option p-3"
+                  data-value="Featured"
                 >
                   Featured
                 </a>
@@ -105,7 +105,7 @@
               <li>
                 <a
                   href="#"
-                  class="font-text font-semibold text-lg filter-option"
+                  class="font-text font-medium text-lg filter-option p-3"
                   data-value="Newest"
                 >
                   Newest
@@ -114,8 +114,8 @@
               <li>
                 <a
                   href="#"
-                  class="font-text font-semibold text-lg filter-option"
-                  data-value="Oldest"
+                  class="font-text font-medium text-lg filter-option p-3"
+                  data-value="Ending soon"
                 >
                   Ending soon
                 </a>
@@ -123,8 +123,8 @@
               <li>
                 <a
                   href="#"
-                  class="font-text font-semibold text-lg filter-option"
-                  data-value="Price low to high"
+                  class="font-text font-medium text-lg filter-option p-3"
+                  data-value="Lowest bids"
                 >
                   Lowest bids
                 </a>
@@ -132,8 +132,8 @@
               <li>
                 <a
                   href="#"
-                  class="font-text font-semibold text-lg filter-option"
-                  data-value="Price high to low"
+                  class="font-text font-medium text-lg filter-option p-3"
+                  data-value="Highest bids"
                 >
                   Highest bids
                 </a>
