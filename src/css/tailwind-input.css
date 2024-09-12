@@ -15,11 +15,15 @@ input {
     @apply text-text-color;
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
     @apply text-placeholder-text;
     @apply font-text;
     @apply font-medium;
 };
+
+label {
+    @apply md:text-lg
+}
 
 @layer base {
 
