@@ -4,11 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta
-      name="description"
-      content="Landing page for an auction website called BIDR."
-    />
-    <title>BIDR | Homepage</title>
+    <meta name="description" content="Listings for auction items." />
+    <title>BIDR | Listings</title>
     <link rel="icon" href="../src/media/logo/Logo.png" />
     <link rel="stylesheet" href="../dist/css/tailwind-output.css" />
   </head>
@@ -79,120 +76,89 @@
       </div>
     </header>
     <main
-      class="w-11/12 lg:mt-10 xl:max-w-7xl m-auto flex flex-col gap-5 lg:gap-20 my-5"
+      class="w-11/12 lg:mt-10 xl:max-w-7xl m-auto my-5 flex flex-col items-center gap-5 md:gap-20"
     >
-      <!-- Categories -->
-      <section class="flex gap-2 justify-between min-h-36 lg:-mb-10">
-        <!-- Small Categories -->
-        <div class="flex flex-wrap justify-between gap-2 grow">
-          <a
-            href="#"
-            class="bg-highlight flex items-center justify-center rounded-sm min-w-20 flex-grow p-1"
-          >
-            <p class="font-text font-semibold text-lg text-center">Cars</p>
-          </a>
-          <a
-            href="#"
-            class="bg-highlight flex items-center justify-center rounded-sm min-w-20 flex-grow p-1"
-          >
-            <p class="font-text font-semibold text-lg text-center">Clothing</p>
-          </a>
-          <a
-            href="#"
-            class="bg-highlight flex items-center justify-center rounded-sm min-w-20 flex-grow p-1"
-          >
-            <p class="font-text font-semibold text-lg text-center">Furniture</p>
-          </a>
-          <a
-            href="#"
-            class="bg-highlight flex items-center justify-center rounded-sm min-w-20 flex-grow p-1"
-          >
-            <p class="font-text font-semibold text-lg text-center">
-              Electronics
-            </p>
-          </a>
+      <section class="w-full flex flex-col gap-5 justify-center">
+        <!-- Hero banner -->
+        <div class="w-full">
+          <img
+            class="w-full h-36 md:h-52 lg:h-64 object-cover rounded-sm"
+            src="../src/media/placeholderimg.png"
+            alt="Profile banner"
+          />
         </div>
-        <!-- Browse -->
-        <a
-          href="#"
-          class="bg-highlight min-w-24 max-w-sm flex justify-center items-center grow"
-        >
-          <p class="font-text font-semibold text-lg text-center">Browse</p>
-        </a>
+
+        <!-- Profile content -->
+        <div class="flex flex-col lg:flex-row justify-around gap-5 lg:gap-10">
+          <div class="flex gap-5 lg:gap-10">
+            <!-- Profile image + settings -->
+            <div class="flex flex-col gap-2 flex-shrink-0">
+              <img
+                src="../src/media/placeholderimg.png"
+                alt="Profile image"
+                class="size-28 sm:size-36 md:size-52 object-cover rounded-sm"
+              />
+              <!-- Settings -->
+              <div class="flex gap-1">
+                <button class="bg-highlight rounded-sm p-2">
+                  <img
+                    src="../src/media/icons/edit-b.png"
+                    alt="Settings icon"
+                    class="size-6 md:size-8"
+                  />
+                </button>
+                <button
+                  class="bg-black font-text font-light text-white p-1 grow"
+                >
+                  Log out
+                </button>
+              </div>
+            </div>
+            <!-- Profile bio -->
+            <div class="flex flex-col gap-1 sm:gap-5">
+              <h1
+                class="font-text font-semibold text-lg sm:text-2xl md:text-3xl"
+              >
+                Nick Everything
+              </h1>
+              <p
+                class="font-text text-sm sm:text-base md:text-lg max-w-md md:max-w-lg grow"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
+                non consectetur illo blanditiis excepturi omnis quod repellendus
+                incidunt est iste fuga pariatur?
+              </p>
+            </div>
+          </div>
+
+          <!-- Profile stats -->
+          <div
+            class="flex lg:flex-col font-text gap-5 md:min-h-24 md:justify-self-start"
+          >
+            <div
+              class="flex flex-col justify-center items-center bg-highlight p-2 grow min-w-40 md:text-xl"
+            >
+              <p class="text-black">Listings</p>
+              <p class="font-semibold">32</p>
+            </div>
+            <div
+              class="flex flex-col justify-center items-center bg-highlight p-2 grow md:text-xl"
+            >
+              <p class="text-black">Wins</p>
+              <p class="font-semibold">32</p>
+            </div>
+          </div>
+        </div>
       </section>
-      <!-- Last chance listings -->
-      <section class="flex flex-col gap-3">
-        <div>
-          <h2 class="lg:text-3xl">LAST CHANCE</h2>
+
+      <!-- Profile listings -->
+      <section class="w-full xl:max-w-7xl flex flex-col gap-5 md:gap-10">
+        <div class="">
+          <h2 class="lg:text-3xl">LISTINGS</h2>
           <div class="bg-black h-1 w-full rounded-sm"></div>
         </div>
-        <!-- Last chance listings -->
-        <div class="flex flex-col gap-3">
-          <a href="#" class="flex flex-col gap-3">
-            <!-- Hero -->
-            <div class="h-36 sm:h-48 md:h-52 lg:h-64">
-              <div class="bg-black bg-opacity-70 py-2 px-4 w-auto absolute">
-                <p class="text-white font-text font-light text-xl lg:text-2xl">
-                  Brown dog hat
-                </p>
-              </div>
-              <img
-                src="/src/media/placeholderimg.png"
-                alt="Placeholder image"
-                class="h-full w-full object-cover"
-              />
-            </div>
-            <!-- Info -->
-            <div class="flex justify-between">
-              <!-- Bidding -->
-              <div class="flex gap-5 justify-between">
-                <button
-                  class="bg-highlight p-2 rounded-sm w-16 lg:w-32 min-w-24 lg:text-xl"
-                >
-                  BID
-                </button>
-                <div class="">
-                  <p class="font-text text-faded text-sm lg:text-lg">
-                    Current bid
-                  </p>
-                  <p
-                    id="latest_bid"
-                    class="font-text font-semibold text-lg lg:text-2xl"
-                  >
-                    28$
-                  </p>
-                </div>
-              </div>
-              <!-- Time -->
-              <div class="">
-                <p class="font-text text-faded text-end text-sm lg:text-lg">
-                  Time left
-                </p>
-                <div id="time_left" class="flex gap-1">
-                  <p id="days_left" class="font-text text-sm lg:text-lg">1d</p>
-                  <p id="hours_left" class="font-text text-sm lg:text-lg">
-                    12h
-                  </p>
-                  <p id="minutes_left" class="font-text text-sm lg:text-lg">
-                    30m
-                  </p>
-                  <p id="minutes_left" class="font-text text-sm lg:text-lg">
-                    28s
-                  </p>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </section>
-      <!-- New -->
-      <section class="flex flex-col gap-3">
-        <div>
-          <h2 class="lg:text-3xl">NEW LISTINGS</h2>
-          <div class="bg-black h-1 w-full rounded-sm"></div>
-        </div>
-        <!-- Newest listings -->
-        <div id="new_list" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        <div id="profile_list" class="grid grid-cols-1 md:grid-cols-2 gap-10">
           <a href="#" class="flex flex-col gap-3">
             <!-- Hero -->
             <div class="h-36 sm:h-48 md:h-52 lg:h-64">
@@ -586,17 +552,8 @@
           </a>
         </div>
       </section>
-      <!-- More listings -->
-      <section class="w-full">
-        <a href="#" class="m-auto w-full flex justify-center items-center">
-          <button
-            class="bg-black text-white font-text font-medium p-2 rounded-sm h-14 w-full md:max-w-60 xl:max-w-80 xl:text-xl"
-          >
-            More listings
-          </button>
-        </a>
-      </section>
-      <!-- Hotbar -->
+
+      <!-- Add js -->
     </main>
     <footer
       class="bg-black rounded-lg h-12 w-11/12 m-auto fixed bottom-5 left-0 right-0 md:hidden"

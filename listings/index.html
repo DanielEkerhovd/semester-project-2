@@ -9,7 +9,7 @@
     <link rel="icon" href="../src/media/logo/Logo.png" />
     <link rel="stylesheet" href="../dist/css/tailwind-output.css" />
   </head>
-  <body class="bg-bg-color">
+  <body class="bg-bg-color mb-20">
     <header class="mt-5 w-11/12 xl:max-w-7xl m-auto">
       <!-- Upper header -->
       <div
@@ -61,7 +61,7 @@
           </a>
           <div class="flex items-center gap-2">
             <!-- Is gonna link to profile.html -->
-            <a href="#">
+            <a href="../profile/">
               <img
                 src="../src/media/icons/hotbar/profile-b.png"
                 alt="Profile icon"
@@ -773,38 +773,36 @@
           </button>
         </a>
       </section>
-      <!-- Hotbar -->
-      <footer class="bg-black rounded-lg h-12 sticky bottom-5 md:hidden">
-        <nav class="flex justify-between px-7 h-full w-full max-w-80 m-auto">
-          <a
-            href="../listings/"
-            class="h-full flex justify-center items-center"
-          >
-            <img
-              src="../src/media/icons/hotbar/browse-w.png"
-              alt="Browse icon"
-              class="size-10/12 object-contain"
-            />
-          </a>
-          <a href="#" class="h-full flex justify-center items-center">
-            <img
-              src="../src/media/icons/hotbar/create-w.png"
-              alt="Create new listing icon"
-              class="size-10/12 object-contain"
-            />
-          </a>
-          <a href="#" class="h-full flex justify-center items-center">
-            <img
-              src="../src/media/icons/hotbar/profile-w.png"
-              alt="Profile icon"
-              class="size-10/12 object-contain"
-            />
-          </a>
-        </nav>
-      </footer>
 
       <!-- Add js -->
       <script src="../dropdown_filter.mjs"></script>
     </main>
+    <footer
+      class="bg-black rounded-lg h-12 w-11/12 m-auto fixed bottom-5 left-0 right-0 md:hidden"
+    >
+      <nav class="flex justify-between px-7 h-full w-full max-w-80 m-auto">
+        <a href="../listings/" class="h-full flex justify-center items-center">
+          <img
+            src="../src/media/icons/hotbar/browse-w.png"
+            alt="Browse icon"
+            class="size-10/12 object-contain"
+          />
+        </a>
+        <a href="#" class="h-full flex justify-center items-center">
+          <img
+            src="../src/media/icons/hotbar/create-w.png"
+            alt="Create new listing icon"
+            class="size-10/12 object-contain"
+          />
+        </a>
+        <a href="#" class="h-full flex justify-center items-center">
+          <img
+            src="../src/media/icons/hotbar/profile-w.png"
+            alt="Profile icon"
+            class="size-10/12 object-contain"
+          />
+        </a>
+      </nav>
+    </footer>
   </body>
 </html>

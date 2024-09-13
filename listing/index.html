@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Listings for auction items." />
+    <title>BIDR | Listings</title>
+    <link rel="icon" href="../src/media/logo/Logo.png" />
+    <link rel="stylesheet" href="../dist/css/tailwind-output.css" />
+  </head>
+  <body class="bg-bg-color min-h-screen mb-20">
+    <header class="mt-5 w-11/12 xl:max-w-7xl m-auto">
+      <!-- Upper header -->
+      <div
+        class="flex justify-between lg:justify-start h-full flex-wrap items-center flex-grow gap-5"
+      >
+        <a href="../" class=" ">
+          <img
+            src="../src/media/logo/Logo.png"
+            alt="BIDR logo"
+            class="h-full object-contain"
+          />
+        </a>
+        <!-- Search bar -->
+        <div
+          class="flex justify-center items-center relative order-last md:order-none h-12 w-full max-w-2xl md:w-auto grow"
+        >
+          <input
+            type="text"
+            placeholder="Search for an item"
+            class="w-full h-full rounded-sm px-3 bg-input-field"
+          />
+
+          <button
+            type="submit"
+            class="absolute right-2 size-9 bg-highlight rounded-sm flex justify-center items-center"
+          >
+            <img
+              src="../src/media/icons/search.png"
+              alt="Search icon"
+              class="size-6"
+            />
+          </button>
+        </div>
+        <!-- Nav icons and economy -->
+        <nav class="flex items-center gap-2 ml-auto">
+          <a href="../listings/" class="hidden md:block">
+            <img
+              src="../src/media/icons/hotbar/browse-b.png"
+              alt="Browse icon"
+              class="size-9"
+            />
+          </a>
+          <a href="#" class="hidden md:block">
+            <img
+              src="../src/media/icons/hotbar/create-b.png"
+              alt="Create new listing icon"
+              class="size-9"
+            />
+          </a>
+          <div class="flex items-center gap-2">
+            <!-- Is gonna link to profile.html -->
+            <a href="../profile/">
+              <img
+                src="../src/media/icons/hotbar/profile-b.png"
+                alt="Profile icon"
+                class="size-9"
+              />
+            </a>
+            <p id="current_wallet" class="font-text font-semibold text-sm">
+              1000$
+            </p>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main
+      class="w-full lg:mt-10 xl:max-w-7xl m-auto justify-center items-center flex flex-col gap-5 lg:gap-10 my-5"
+    >
+      <!-- Back button -->
+      <div class="w-11/12 xl:w-full">
+        <a
+          href="javascript:history.back()"
+          class="bg-black flex justify-center items-center w-20 p-1 lg:w-32 lg:p-2"
+        >
+          <p class="text-white font-extra lg:text-xl">-back</p>
+        </a>
+      </div>
+
+      <!-- Listing content -->
+
+      <!-- Hero image -->
+      <section class="w-screen xl:max-w-7xl">
+        <img
+          src="../src/media/placeholderimg.png"
+          alt="Listing image"
+          id="hero_image"
+          class="w-full h-52 md:h-64 lg:h-96 object-cover"
+        />
+      </section>
+
+      <!-- Listing content -->
+      <section
+        class="w-full xl:max-w-7xl flex flex-col xl:flex-row gap-10 items-center"
+      >
+        <!-- Listing info -->
+        <div class="w-11/12 flex flex-col gap-10">
+          <div class="">
+            <h1 class="font-title text-3xl lg:text-4xl font-semibold">
+              Brown Dog hat
+            </h1>
+            <a id="listing_owner" href="#" class="font-title lg:text-lg">
+              By <span class="underline">John Doe</span>
+            </a>
+          </div>
+
+          <div class="">
+            <p class="font-text lg:text-lg max-w-2xl">
+              Lorem ipsum odor amet, consectetuer adipiscing elit. Mauris
+              dictumst neque id risus taciti odio. Maecenas nullam gravida praes
+              ent volutpat vestibulum. Tempor taciti posuere pharetra molestie
+              hac.
+            </p>
+          </div>
+
+          <div class="">
+            <div class="flex justify-between lg:max-w-2xl">
+              <!-- Current bid -->
+              <div>
+                <h2 class="font-text text-faded text-lg lg:text-xl">
+                  Current bid
+                </h2>
+                <p
+                  id="listing_current_bid"
+                  class="font-text font-semibold text-xl lg:text-2xl"
+                >
+                  <span>28</span>$
+                </p>
+              </div>
+              <div class="flex flex-col items-end">
+                <!-- Time left -->
+                <h2 class="font-text text-faded text-lg lg:text-xl">
+                  Time left
+                </h2>
+                <div class="flex gap-1">
+                  <p id="listing_days" class="font-text lg:text-xl">
+                    <span>1</span>d
+                  </p>
+                  <p id="listing_hours" class="font-text lg:text-xl">
+                    <span>12</span>h
+                  </p>
+                  <p id="listing_minutes" class="font-text lg:text-xl">
+                    <span>30</span>m
+                  </p>
+                  <p id="listing_seconds" class="font-text lg:text-xl">
+                    <span>30</span>s
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <!-- Bid -->
+            <button
+              class="bg-highlight p-2 rounded-sm w-16 lg:w-32 xl:p-4 min-w-24 lg:text-xl"
+            >
+              BID
+            </button>
+          </div>
+        </div>
+
+        <!-- Media gallery -->
+
+        <div class="w-full flex items-center justify-center">
+          <div class="carousel-container w-full relative">
+            <div
+              id="carousel"
+              class="relative flex overflow-hidden w-full h-52 sm:h-72 lg:h-96"
+            >
+              <!-- Images -->
+              <img
+                src="https://img.freepik.com/free-photo/silly-brown-newfoundland-dog-with-black-top-hat_493961-1702.jpg"
+                class="carousel-item w-full cursor-pointer object-cover"
+                alt="Image 1"
+                data-id="1"
+              />
+              <img
+                src="https://i.pinimg.com/736x/c6/42/9d/c6429d327986f6501b9771c38056e41a.jpg"
+                class="carousel-item w-full hidden cursor-pointer object-cover"
+                alt="Image 2"
+                data-id="2"
+              />
+              <img
+                src="https://i.etsystatic.com/18460845/r/il/8241c7/3139387828/il_570xN.3139387828_dxoe.jpg"
+                class="carousel-item w-full hidden cursor-pointer object-cover"
+                alt="Image 3"
+                data-id="3"
+              />
+            </div>
+
+            <!-- Carousel controls -->
+            <button
+              id="prev"
+              class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-700 text-white px-4 py-2"
+            >
+              Prev
+            </button>
+            <button
+              id="next"
+              class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-700 text-white px-4 py-2"
+            >
+              Next
+            </button>
+          </div>
+
+          <!-- Modal -->
+          <div
+            id="imageModal"
+            class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden"
+          >
+            <span
+              id="closeModal"
+              class="absolute top-5 right-5 text-white text-3xl cursor-pointer"
+              >&times;</span
+            >
+            <!-- Modal Image Carousel -->
+            <div
+              class="relative flex items-center justify-center w-full max-w-3xl"
+            >
+              <button
+                id="modalPrev"
+                class="absolute left-0 bg-gray-700 text-white px-4 py-2"
+              >
+                Prev
+              </button>
+              <img
+                id="modalImage"
+                class="max-w-full max-h-full w-full"
+                src=""
+                alt="Full Image"
+              />
+              <button
+                id="modalNext"
+                class="absolute right-0 bg-gray-700 text-white px-4 py-2"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Listing info -->
+
+      <!-- Add js -->
+      <script src="../src/js/carousel.js"></script>
+    </main>
+    <!-- Hotbar -->
+    <footer
+      class="bg-black rounded-lg h-12 w-11/12 m-auto fixed bottom-5 left-0 right-0 md:hidden"
+    >
+      <nav class="flex justify-between px-7 h-full w-full max-w-80 m-auto">
+        <a href="../listings/" class="h-full flex justify-center items-center">
+          <img
+            src="../src/media/icons/hotbar/browse-w.png"
+            alt="Browse icon"
+            class="size-10/12 object-contain"
+          />
+        </a>
+        <a href="#" class="h-full flex justify-center items-center">
+          <img
+            src="../src/media/icons/hotbar/create-w.png"
+            alt="Create new listing icon"
+            class="size-10/12 object-contain"
+          />
+        </a>
+        <a href="#" class="h-full flex justify-center items-center">
+          <img
+            src="../src/media/icons/hotbar/profile-w.png"
+            alt="Profile icon"
+            class="size-10/12 object-contain"
+          />
+        </a>
+      </nav>
+    </footer>
+  </body>
+</html>
