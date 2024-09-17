@@ -1,5 +1,7 @@
+import { USER_LOGIN } from "../keys.mjs"
+
 export default async function login(email, password) {
-  const response = await fetch('/api/user/login', {
+  const response = await fetch(USER_LOGIN, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -10,8 +12,6 @@ export default async function login(email, password) {
   if (!response.ok) {
     throw new Error('Invalid email or password')
   }
-
-  console.log(response.json())
 
   return response.json()
 }

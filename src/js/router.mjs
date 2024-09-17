@@ -1,8 +1,15 @@
-console.log('Hello from router.mjs')
+// Switch router
+import login from '/src/js/page/auth/login.mjs';
 
-import login from './api/user/login.mjs'
+const currentPath = window.location.pathname;
+console.log(currentPath);
 
-const email = 'danielE@stud.noroff.no'
-const password = 'Bergen123'
+switch (currentPath) {
 
-login(email, password)
+    // Login
+
+    case '/login/':
+        login();
+        break;
+
+}
