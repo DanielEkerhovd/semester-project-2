@@ -55,7 +55,7 @@
               class="size-9"
             />
           </a>
-          <a href="#" class="hidden md:block">
+          <a href="#" class="hidden">
             <img
               src="../src/media/icons/hotbar/create-b.png"
               alt="Create new listing icon"
@@ -64,16 +64,18 @@
           </a>
           <div class="flex items-center gap-2">
             <!-- Is gonna link to profile.html -->
-            <a href="../profile/">
-              <img
+            <a href="../login/" class="p-2 bg-black rounded-sm">
+              <p class="text-white text-title font-semibold">Log in</p>
+              <!-- <img
                 src="../src/media/icons/hotbar/profile-b.png"
                 alt="Profile icon"
                 class="size-9"
-              />
+              /> -->
             </a>
-            <p id="current_wallet" class="font-text font-semibold text-sm">
-              1000$
-            </p>
+            <p
+              id="current_wallet"
+              class="font-text font-semibold text-sm hidden"
+            ></p>
           </div>
         </nav>
       </div>
@@ -625,5 +627,6 @@
         </a>
       </nav>
     </footer>
+    <script type="module" src="../src/js/router.mjs"></script>
   </body>
 </html>
