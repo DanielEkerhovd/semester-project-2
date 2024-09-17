@@ -11,7 +11,7 @@
     "watch": "cross-env CHOKIDAR_USEPOLLING=true tailwindcss -i ./src/css/tailwind-input.css -o ./dist/css/tailwind-output.css --watch",
     "start": "live-server",
     "dev": "npm-run-all --parallel build watch start",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "keywords": [
     "auction",
