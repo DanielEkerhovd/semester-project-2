@@ -1,5 +1,5 @@
-import apiLogin from '../../api/user/login.mjs';
-import errorBox from '../misc/errorbox.mjs';
+import apiLogin from '../../../api/user/login.mjs';
+import errorBox from '../../misc/errorbox.mjs';
 
 export default function loginFormEvent() {
 
