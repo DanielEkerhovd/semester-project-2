@@ -1,4 +1,5 @@
 import apiLogin from '../../api/user/login.mjs';
+import errorBox from '../misc/errorbox.mjs';
 
 export default function loginFormEvent() {
 
@@ -10,38 +11,36 @@ export default function loginFormEvent() {
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
 
-            errorMessage.classList.add('hidden');
-            errorMessage.classList.remove('flex');
+            // Resets error message
+            await errorBox(errorMessage, false);
 
 
-            // const email = document.getElementById('login_email');
-            // const password = document.getElementById('login_password');
+            const email = document.getElementById('login_email');
+            const password = document.getElementById('login_password');
             
-            // const emailValue = email.value;
-            // const passwordValue = password.value;
-            // const loginUser = await apiLogin(emailValue, passwordValue);
-
-            const dummyEmail = 'danielE@stud.noroff.no';
-            const dummyPassword = 'Bergen12';
+            const emailValue = email.value;
+            const passwordValue = password.value;
 
             try {
 
-                const loginUser = await apiLogin(dummyEmail, dummyPassword);
+                const loginUser = await apiLogin(emailValue, passwordValue);
+                const data = loginUser.data;
 
-                
-                if (loginUser.error) {
-                    console.log('Login failed');
-                    errorMessage.classList.add('flex');
-                    errorMessage.classList.remove('hidden');
-                } else {
-                    console.log('Login success');
-                }
+                // Sets local storage
+                const { token, ...profile } = data;
 
+                localStorage.setItem('accessToken', token);
+                localStorage.setItem('profile', JSON.stringify(profile));
 
+                // Redirects to dashboard
+                window.location.href = '/';
 
 
             } catch (error) {
-                console.log(error);
+                
+                console.error(error);
+                errorBox(errorMessage);
+
             }
 
             
