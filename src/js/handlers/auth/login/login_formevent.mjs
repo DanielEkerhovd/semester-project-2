@@ -1,4 +1,4 @@
-import apiLogin from '../../../api/user/login.mjs';
+import loginUser from '../../../handlers/auth/login_action.mjs';
 import errorBox from '../../misc/errorbox.mjs';
 
 export default function loginFormEvent() {
@@ -23,18 +23,7 @@ export default function loginFormEvent() {
 
             try {
 
-                const loginUser = await apiLogin(emailValue, passwordValue);
-                const data = loginUser.data;
-
-                // Sets local storage
-                const { token, ...profile } = data;
-
-                localStorage.setItem('accessToken', token);
-                localStorage.setItem('profile', JSON.stringify(profile));
-
-                // Redirects to dashboard
-                window.location.href = '/';
-
+                loginUser(emailValue, passwordValue);
 
             } catch (error) {
                 

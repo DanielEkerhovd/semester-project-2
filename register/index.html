@@ -33,27 +33,29 @@
         <!-- Error box -->
         <div
           id="error-box"
-          class="bg-highlight text-black px-4 py-6 flex flex-col justify-center items-center m-auto"
+          class="bg-highlight text-black px-4 py-6 hidden flex-col justify-center items-center m-auto"
         >
           <p>Oh no! Something went wrong.</p>
           <p>Maybe the name was taken?</p>
         </div>
 
-        <!-- Login form -->
+        <!-- Register form -->
 
-        <form class="flex flex-col items-center w-full gap-5 max-w-lg">
+        <form
+          id="register_form"
+          class="flex flex-col items-center w-full gap-5 max-w-lg"
+        >
           <div class="w-full">
             <label for="name" class="font-text font-semibold">Username</label>
             <input
               type="text"
-              id="name"
+              id="register_name"
               name="name"
               placeholder="guest_guestestus"
-              required
               class="w-full bg-[#E0E0E0] p-2 rounded-sm text-black text-sm font-semibold"
             />
             <!-- Error handling -->
-            <div class="mt-2">
+            <div id="name_errors" class="mt-2 hidden">
               <div class="flex gap-1 items-center">
                 <img
                   src="../src/media/icons/error-handling/error.png"
@@ -68,15 +70,14 @@
           <div class="w-full">
             <label for="email" class="font-text font-semibold">Email</label>
             <input
-              type="email"
-              id="email"
+              type="text"
+              id="register_email"
               name="email"
               placeholder="guest@stud.noroff.no"
-              required
               class="w-full bg-[#E0E0E0] p-2 rounded-sm text-black text-sm font-semibold"
             />
             <!-- Error handling -->
-            <div class="mt-2">
+            <div id="email_errors" class="mt-2 hidden">
               <div class="flex gap-1 items-center">
                 <img
                   src="../src/media/icons/error-handling/error.png"
@@ -97,18 +98,20 @@
             <div class="relative">
               <input
                 type="password"
-                id="password"
+                id="register_password"
                 name="password"
                 placeholder="password"
-                required
                 class="w-full bg-[#E0E0E0] p-2 rounded-sm text-black text-sm font-semibold"
               />
-              <button id="password-hide" class="absolute size-7 right-1 top-1">
-                <img src="../src/media/icons/password/hide.png" alt="" />
-              </button>
+              <div id="password-hide" class="absolute size-7 right-1 top-1">
+                <img
+                  src="../src/media/icons/password/hide.png"
+                  alt="Show password icon"
+                />
+              </div>
             </div>
             <!-- Error handling -->
-            <div class="mt-2">
+            <div id="password_errors" class="mt-2 flex-col hidden">
               <div class="flex gap-1 items-center">
                 <img
                   src="../src/media/icons/error-handling/error.png"
@@ -123,7 +126,7 @@
                   alt="error icon"
                   class="size-2"
                 />
-                <p class="text-error text-xs">Must be atleast 8 characters</p>
+                <p class="text-error text-xs">Must contain no spaces</p>
               </div>
             </div>
           </div>
@@ -134,6 +137,10 @@
             Register
           </button>
         </form>
+
+        <!-- Have to add this to use the classes later with js -->
+        <div class="hidden text-success"></div>
+
         <div class="flex flex-col justify-center items-center mt-10">
           <p>Already an user?</p>
           <a
@@ -144,5 +151,6 @@
         </div>
       </section>
     </main>
+    <script type="module" src="/src/js/router.mjs"></script>
   </body>
 </html>
