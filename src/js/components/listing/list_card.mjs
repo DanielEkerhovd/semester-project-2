@@ -1,7 +1,25 @@
-export default function listCard() {
-  // Create the main anchor tag
+import timeCounter from '/src/js/handlers/misc/time_left.mjs'
+// capitalize first letter of title
+const capitalize = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+export default function listCard(listing) {
+  const cardId = listing.id
+  const cardTitle = capitalize(listing.title)
+
+  const cardMedia = listing.media
+  const cardEnd = listing.endsAt
+  const cardBids = listing.bids
+  let latestBidAmount = 0
+
+  if (cardBids.length > 0) {
+    const latestBid = cardBids[cardBids.length - 1]
+    latestBidAmount = latestBid.amount
+  }
+
   const card = document.createElement('a')
-  card.href = '#'
+  card.href = '/listing/?id=' + cardId
   card.classList.add('flex', 'flex-col', 'gap-3')
 
   // Hero section
@@ -28,14 +46,21 @@ export default function listCard() {
     'text-xl',
     'lg:text-2xl',
   )
-  title.innerText = 'Brown dog hat'
+  title.innerText = cardTitle
 
   overlay.appendChild(title)
 
   // Image
   const img = document.createElement('img')
-  img.src = '../src/media/placeholderimg.png' // Placeholder image path
-  img.alt = 'Placeholder image'
+
+  if (cardMedia.length > 0) {
+    img.src = cardMedia[0].url
+    img.alt = cardTitle + ' image'
+  } else {
+    img.src = '../src/media/placeholderimg.png'
+    img.alt = 'Placeholder image'
+  }
+
   img.classList.add('h-full', 'w-full', 'object-cover')
 
   hero.appendChild(overlay)
@@ -72,7 +97,7 @@ export default function listCard() {
   const bidValue = document.createElement('p')
   bidValue.id = 'latest_bid'
   bidValue.classList.add('font-text', 'font-semibold', 'text-lg', 'lg:text-2xl')
-  bidValue.innerText = '28$'
+  bidValue.innerText = latestBidAmount + '$'
 
   bidDetails.appendChild(bidText)
   bidDetails.appendChild(bidValue)
@@ -94,29 +119,28 @@ export default function listCard() {
   timeText.innerText = 'Time left'
 
   const timeLeft = document.createElement('div')
-  timeLeft.id = 'time_left'
+  timeLeft.id = 'time_left_' + cardId
   timeLeft.classList.add('flex', 'gap-1')
 
-  // Days, hours, minutes, seconds
-  const daysLeft = document.createElement('p')
-  daysLeft.id = 'days_left'
-  daysLeft.classList.add('font-text', 'text-sm', 'lg:text-lg')
-  daysLeft.innerText = '1d'
+  const createTimeElement = (id, text = '') => {
+    const element = document.createElement('p')
+    element.id = id
+    element.classList.add('font-text', 'text-sm', 'lg:text-lg', 'text-center')
+    element.innerText = text
 
-  const hoursLeft = document.createElement('p')
-  hoursLeft.id = 'hours_left'
-  hoursLeft.classList.add('font-text', 'text-sm', 'lg:text-lg')
-  hoursLeft.innerText = '12h'
+    if (id === 'seconds_left_' + cardId) {
+      element.classList.add('w-8')
+    }
 
-  const minutesLeft = document.createElement('p')
-  minutesLeft.id = 'minutes_left'
-  minutesLeft.classList.add('font-text', 'text-sm', 'lg:text-lg')
-  minutesLeft.innerText = '30m'
+    return element
+  }
 
-  const secondsLeft = document.createElement('p')
-  secondsLeft.id = 'seconds_left'
-  secondsLeft.classList.add('font-text', 'text-sm', 'lg:text-lg')
-  secondsLeft.innerText = '28s'
+  const daysLeft = createTimeElement('days_left_' + cardId)
+  const hoursLeft = createTimeElement('hours_left_' + cardId)
+  const minutesLeft = createTimeElement('minutes_left_' + cardId)
+  const secondsLeft = createTimeElement('seconds_left_' + cardId)
+
+  timeCounter(cardId, cardEnd)
 
   // Append time values to timeLeft div
   timeLeft.appendChild(daysLeft)
@@ -136,5 +160,5 @@ export default function listCard() {
   card.appendChild(hero)
   card.appendChild(info)
 
-    return card
+  return card
 }
