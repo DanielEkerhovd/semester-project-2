@@ -1,46 +1,22 @@
 import listCard from '../../components/listing/list_card.mjs'
 import listingsAPI from '../../api/listing/fetch_listing.mjs'
-import timeLeft from "/src/js/handlers/misc/time_left.mjs"
 
 export default async function homepage() {
 
-    const allListings = await listingsAPI(10);
-    console.log(allListings);
+    const lastChanceContainer = document.getElementById('last_list');
+    const newContainer = document.getElementById('new_list');
+
+    const allListings = await listingsAPI(20);
+    const lastChanceListings = await listingsAPI(2, 'endsAt', 'asc');
     
-    const newListing = document.getElementById('new_list');
-    
-    allListings.forEach(listing => {
+    lastChanceListings.forEach(listing => {
         const newCard = listCard(listing);
-        newListing.appendChild(newCard);
+        lastChanceContainer.appendChild(newCard);
     });
 
+    allListings.forEach(listing => {
+        const newCard = listCard(listing);
+        newContainer.appendChild(newCard);
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-//   const lastListing = document.getElementById('last_list');
-//   const lastCard = listCard();
-//   lastListing.appendChild(lastCard);
-
-//   const newListing = document.getElementById('new_list')
-//   const newCards = []
-
-//   for (let i = 0; i < 2; i++) {
-    
-//     const newCard = listCard()
-//     newCards.push(newCard)
-    
-//   }
-
-//   newCards.forEach(card => {
-//     newListing.appendChild(card)
-//   })
 }

@@ -72,7 +72,7 @@ export default function listCard(listing) {
 
   // Bidding section
   const bidding = document.createElement('div')
-  bidding.classList.add('flex', 'gap-5', 'justify-between')
+  bidding.classList.add('flex', 'gap-3', 'justify-between')
 
   // Bid button
   const bidButton = document.createElement('button')
@@ -89,6 +89,7 @@ export default function listCard(listing) {
 
   // Current bid details
   const bidDetails = document.createElement('div')
+  bidDetails.classList.add('flex', 'flex-col', 'gap-1')
 
   const bidText = document.createElement('p')
   bidText.classList.add('font-text', 'text-faded', 'text-sm', 'lg:text-lg')
@@ -129,7 +130,7 @@ export default function listCard(listing) {
     element.innerText = text
 
     if (id === 'seconds_left_' + cardId) {
-      element.classList.add('w-8')
+      element.classList.add('md:w-8')
     }
 
     return element
