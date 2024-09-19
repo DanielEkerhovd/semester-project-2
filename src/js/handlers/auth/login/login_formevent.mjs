@@ -23,7 +23,7 @@ export default function loginFormEvent() {
 
             try {
 
-                loginUser(emailValue, passwordValue);
+                loginUser(emailValue.trim(), passwordValue.trim());
 
             } catch (error) {
                 

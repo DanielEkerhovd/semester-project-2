@@ -5,10 +5,14 @@ export default function register() {
   // Register form
   registerForm()
 
+
+
   // Password visibility
 
   const passwordInput = document.getElementById('register_password')
   const passwordButton = document.querySelector('#password-hide img')
 
   passwordVisibility(passwordInput, passwordButton)
+
+  
 }
