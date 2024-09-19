@@ -5,6 +5,7 @@ export default function loginFormEvent() {
 
     const form = document.getElementById('login_form');
     const errorMessage = document.getElementById('error-box');
+
     
     if (form) {
 
@@ -12,8 +13,7 @@ export default function loginFormEvent() {
             event.preventDefault();
 
             // Resets error message
-            await errorBox(errorMessage, false);
-
+            errorBox(errorMessage, false);
 
             const email = document.getElementById('login_email');
             const password = document.getElementById('login_password');
@@ -22,13 +22,13 @@ export default function loginFormEvent() {
             const passwordValue = password.value;
 
             try {
-
-                loginUser(emailValue.trim(), passwordValue.trim());
+                
+               await loginUser(emailValue.trim(), passwordValue.trim());
 
             } catch (error) {
                 
                 console.error(error);
-                errorBox(errorMessage);
+                errorBox(errorMessage, true);
 
             }
 

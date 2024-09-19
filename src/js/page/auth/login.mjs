@@ -10,8 +10,6 @@ export default function login() {
     const passwordInput = document.getElementById('login_password');
     const passwordButton = document.querySelector('#password-hide img');
 
-    console.log(passwordInput, passwordButton);
-
     passwordVisibility(passwordInput, passwordButton);
 
 };
