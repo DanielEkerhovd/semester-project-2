@@ -42,4 +42,5 @@ export default function timeLeft(id, time) {
         timeContainer.innerHTML = 'Ended'
     }
   }, 1000)
+
 }

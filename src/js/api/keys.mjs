@@ -14,3 +14,11 @@ export const LISTING_PARAM = `${LISTING_BASE}?_bids=true&_seller=true&_active=tr
 
 export const PROFILE_BASE = `${API_BASE}auction/profiles`
 export const PROFILE_PARAM = `${PROFILE_BASE}?_listings=true`
+
+// Query params
+
+export const QUERY_NEWEST = '&sort=created'
+export const QUERY_ENDING_SOON = '&sort=endsAt&sortOrder=asc'
+export const QUERY_HIGHEST_BID = '&sort=bids&sortOrder=desc'
+export const QUERY_LOWEST_BID = '&sort=bids&sortOrder=asc'
+export const QUERY_PAGE = '&page='

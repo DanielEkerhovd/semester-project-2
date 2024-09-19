@@ -1,9 +1,13 @@
 import { LISTING_PARAM } from '/src/js/api/keys.mjs'
 
-export default async function listingsAPI(limit = 10, sort = 'created', sortOrder = 'desc') {
+export default async function listingsAPI(limit = 10, queryParam = false) {
   
 
-  const url = `${LISTING_PARAM}&limit=${limit}&sort=${sort}&sortOrder=${sortOrder}`
+  let url = `${LISTING_PARAM}&limit=${limit}`
+  
+  if (queryParam) {
+    url += queryParam
+  }
 
   try {
     const response = await fetch(url)
