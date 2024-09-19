@@ -2,6 +2,7 @@
 import login from '/src/js/page/auth/login.mjs';
 import register from '/src/js/page/auth/register.mjs';
 import homepage from '/src/js/page/home/homepage.mjs';
+import listings from './page/listings.mjs';
 
 import logOut from './handlers/misc/logout.mjs';
 
@@ -25,5 +26,8 @@ switch (currentPath) {
     case '/profile/':
         // Put logout in the page folder of profile??
         logOut();
+        break;
+    case '/listings/':
+        listings();
         break;
 };
