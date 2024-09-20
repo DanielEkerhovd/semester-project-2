@@ -1,13 +1,14 @@
 import item from '../components/listing/list_item.mjs';
 import singleListing from '../api/listing/fetch_single.mjs';
+import carouselModal from '../handlers/misc/carousel.mjs';
 
 export default async function listings() {
 
-    const id = '529d33a8-ef73-4bc9-a58e-8da46f99e5a6'
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
 
     const listing = await singleListing(id);
 
-    console.log(listing);
 
     const itemContainer = document.getElementById('listing_item');
 
@@ -15,6 +16,7 @@ export default async function listings() {
 
     itemContainer.appendChild(listingItem);
 
-    console.log(listingItem);
+    carouselModal();
+
 };
 

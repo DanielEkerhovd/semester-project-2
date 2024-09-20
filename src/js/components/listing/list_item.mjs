@@ -1,5 +1,4 @@
 import timeLeft from '../../handlers/misc/time_left.mjs'
-import carouselModal from '../../handlers/misc/carousel.mjs'
 
 export default function listItem(listing) {
   const listingID = listing.id
@@ -19,6 +18,7 @@ export default function listItem(listing) {
   const listingEndTime = listing.endsAt
 
   const container = document.createElement('div')
+  container.classList.add('flex', 'flex-col', 'items-center', 'gap-5', 'md:gap-10')
 
   // Hero section
   const hero = document.createElement('div')
@@ -74,7 +74,7 @@ export default function listItem(listing) {
   // bid and time
 
   const valuesContainer = document.createElement('div')
-    valuesContainer.classList.add('flex', 'justify-between', 'lg:max-w-2xl')
+  valuesContainer.classList.add('flex', 'justify-between', 'lg:max-w-2xl')
 
   // Current bid
   const bidContainer = document.createElement('div')
@@ -137,72 +137,168 @@ export default function listItem(listing) {
   timeContainer.append(timeTitle, timeLeftContainer)
   valuesContainer.append(bidContainer, timeContainer)
 
-    // Bid button
-    const bidButton = document.createElement('button')
-    bidButton.id = 'bid_button'
-    bidButton.classList.add(
-        'bg-highlight',
-        'p-2',
-        'rounded-sm',
-        'w-16',
-        'lg:w-32',
-        'min-w-24',
-        'lg:text-xl',
-    )
-    bidButton.innerText = 'BID'
-
-
+  // Bid button
+  const bidButton = document.createElement('button')
+  bidButton.id = 'bid_button'
+  bidButton.classList.add(
+    'bg-highlight',
+    'p-2',
+    'rounded-sm',
+    'w-16',
+    'lg:w-32',
+    'min-w-24',
+    'lg:text-xl',
+  )
+  bidButton.innerText = 'BID'
 
   listingInfo.append(titleContainer, description, valuesContainer, bidButton)
 
-    // Media gallery
-    const mediaGallery = document.createElement('div')
-    mediaGallery.classList.add('w-full', 'flex', 'items-center', 'justify-center')
+  // Media gallery
+  const mediaGallery = document.createElement('div')
+  mediaGallery.classList.add('w-full', 'flex', 'items-center', 'justify-center')
 
-    const carouselContainer = document.createElement('div')
-    carouselContainer.classList.add('carousel-container', 'w-full', 'relative')
+  const carouselContainer = document.createElement('div')
+  carouselContainer.classList.add('carousel-container', 'w-full', 'relative')
 
-    const carousel = document.createElement('div')
-    carousel.id = 'carousel'
-    carousel.classList.add('relative', 'flex', 'overflow-hidden', 'w-full', 'h-52', 'sm:h-72', 'lg:h-96')
+  if (listingMedia.length === 1) {
+    carouselContainer.classList.add('hidden')
+  }
 
-    listingMedia.forEach((media, index) => {
+  const carousel = document.createElement('div')
+  carousel.id = 'carousel'
+  carousel.classList.add(
+    'relative',
+    'flex',
+    'overflow-hidden',
+    'w-full',
+    'h-52',
+    'sm:h-72',
+    'lg:h-96',
+  )
 
-        if (index === 0) {
-            return
-        };
+  // Assume `listingMedia` is an array of media objects
+  listingMedia.forEach((media, index) => {
+    if (index === 0) {
+      return // Skip first for hero image if needed
+    }
 
-        const image = document.createElement('img')
-        image.src = `${listingMedia[index + 1].url}`
-        image.alt = `Image of ${listingTitle}`
-        image.classList.add('carousel-item', 'w-full', 'cursor-pointer', 'object-cover')
-        image.dataset.id = index + 1
+    const image = document.createElement('img')
+    image.src = `${listingMedia[index].url}`
+    image.alt = `Image of ${listingTitle}`
+    image.classList.add(
+      'carousel-item',
+      'w-full',
+      'cursor-pointer',
+      'object-cover',
+    )
+    image.dataset.id = index
 
-        carousel.appendChild(image)
+    carousel.appendChild(image)
+  })
 
-    });
+  const carouselControlsPrev = document.createElement('button')
+  carouselControlsPrev.id = 'prev'
+  carouselControlsPrev.classList.add(
+    'absolute',
+    'left-0',
+    'top-1/2',
+    '-translate-y-1/2',
+    'bg-gray-700',
+    'text-white',
+    'px-4',
+    'py-2',
+  )
+  carouselControlsPrev.innerText = 'Prev'
 
-    const carouselControlsPrev = document.createElement('button')
-    carouselControlsPrev.id = 'prev'
-    carouselControlsPrev.classList.add('absolute', 'left-0', 'top-1/2', '-translate-y-1/2', 'bg-gray-700', 'text-white', 'px-4', 'py-2')
-    carouselControlsPrev.innerText = 'Prev'
+  const carouselControlsNext = document.createElement('button')
+  carouselControlsNext.id = 'next'
+  carouselControlsNext.classList.add(
+    'absolute',
+    'right-0',
+    'top-1/2',
+    '-translate-y-1/2',
+    'bg-gray-700',
+    'text-white',
+    'px-4',
+    'py-2',
+  )
+  carouselControlsNext.innerText = 'Next'
 
-    const carouselControlsNext = document.createElement('button')
-    carouselControlsNext.id = 'next'
-    carouselControlsNext.classList.add('absolute', 'right-0', 'top-1/2', '-translate-y-1/2', 'bg-gray-700', 'text-white', 'px-4', 'py-2')
-    carouselControlsNext.innerText = 'Next'
+  carouselContainer.append(carousel, carouselControlsPrev, carouselControlsNext)
 
-    carouselContainer.append(carousel, carouselControlsPrev, carouselControlsNext)
+  // Modal setup
+  const modal = document.createElement('div')
+  modal.id = 'imageModal'
+  modal.classList.add(
+    'fixed',
+    'inset-0',
+    'bg-black',
+    'bg-opacity-75',
+    'flex',
+    'items-center',
+    'justify-center',
+    'hidden',
+  )
 
+  const closeModal = document.createElement('span')
+  closeModal.id = 'closeModal'
+  closeModal.classList.add(
+    'absolute',
+    'top-5',
+    'right-5',
+    'text-white',
+    'text-3xl',
+    'cursor-pointer',
+  )
+  closeModal.innerHTML = '&times;'
+  modal.appendChild(closeModal)
 
+  const modalCarousel = document.createElement('div')
+  modalCarousel.classList.add(
+    'relative',
+    'flex',
+    'items-center',
+    'justify-center',
+    'w-full',
+    'max-w-3xl',
+  )
 
-    // carouselModal();
-    
+  const modalPrev = document.createElement('button')
+  modalPrev.id = 'modalPrev'
+  modalPrev.classList.add(
+    'absolute',
+    'left-0',
+    'bg-gray-700',
+    'text-white',
+    'px-4',
+    'py-2',
+  )
+  modalPrev.innerText = 'Prev'
 
+  const modalImage = document.createElement('img')
+  modalImage.id = 'modalImage'
+  modalImage.classList.add('max-w-full', 'max-h-full', 'w-full')
+  modalImage.src = ''
+  modalImage.alt = 'Full Image'
 
+  const modalNext = document.createElement('button')
+  modalNext.id = 'modalNext'
+  modalNext.classList.add(
+    'absolute',
+    'right-0',
+    'bg-gray-700',
+    'text-white',
+    'px-4',
+    'py-2',
+  )
+  modalNext.innerText = 'Next'
 
+  modalCarousel.append(modalPrev, modalImage, modalNext)
+  modal.append(modalCarousel)
 
-  listingContent.appendChild(listingInfo, mediaGallery)
+  mediaGallery.append(carouselContainer, modal)
+
+  listingContent.append(listingInfo, mediaGallery)
   container.append(hero, listingContent)
 
   return container
