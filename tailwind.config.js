@@ -1,5 +1,8 @@
 module.exports = {
-  content: ['./src/**/*.{html,js,jsx,ts,tsx}', './index.html', './**/*.html'],
+  content: [
+    './src/**/*.{html,js,mjs}', 
+    './index.html', 
+    './**/*.html'],
   theme: {
     fontFamily: {
       title: ['Raleway', 'sans-serif'],
