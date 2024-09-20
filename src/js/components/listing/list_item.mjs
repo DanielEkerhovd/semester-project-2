@@ -34,6 +34,7 @@ export default function listItem(listing) {
     'md:h-64',
     'lg:h-96',
     'object-cover',
+    'drop-shadow-2xl'
   )
 
   hero.appendChild(heroImage)
@@ -237,7 +238,7 @@ export default function listItem(listing) {
     'flex',
     'items-center',
     'justify-center',
-    'hidden',
+    'hidden'
   )
 
   const closeModal = document.createElement('span')
@@ -249,6 +250,7 @@ export default function listItem(listing) {
     'text-white',
     'text-3xl',
     'cursor-pointer',
+    'z-10'
   )
   closeModal.innerHTML = '&times;'
   modal.appendChild(closeModal)

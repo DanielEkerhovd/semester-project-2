@@ -1,15 +1,27 @@
 import apiLogin from '../../api/user/login.mjs';
+import fetchProfile from '../../api/user/profile.mjs';
+import createKey  from '../../api/user/api_key.mjs';
 
 export default async function loginUser(emailValue, passwordValue) {
-  const loginUser = await apiLogin(emailValue, passwordValue)
-  const data = loginUser.data
+  const loginUser = await apiLogin(emailValue, passwordValue);
+
+  const name = loginUser.data.name;
+  localStorage.setItem('userName', name);
 
   // Sets local storage
-  const { accessToken, ...profile } = data;
+  const token = loginUser.data.accessToken;
+  localStorage.setItem('accessToken', token);
+  
 
-  localStorage.setItem('accessToken', accessToken)
-  localStorage.setItem('profile', JSON.stringify(profile))
+  // Create key
+  const key = await createKey();
+  localStorage.setItem('apiKey', key.data.key);
 
+  // Fetches profile
+  const profile = await fetchProfile();
+  console.log(profile);
+  localStorage.setItem('profile', JSON.stringify(profile.data));
+  
   // Redirects to dashboard
   window.location.href = '/'
 }
