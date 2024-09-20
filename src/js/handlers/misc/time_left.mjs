@@ -1,8 +1,7 @@
 export default function timeLeft(id, time) {
+  const listingID = id
 
-    const listingID = id;
-  
-    // Set the date we're counting down to
+  // Set the date we're counting down to
 
   const countDownDate = new Date(time).getTime()
 
@@ -39,8 +38,7 @@ export default function timeLeft(id, time) {
     // If the countdown is over, display text
     if (distance < 0) {
       clearInterval(x)
-        timeContainer.innerHTML = 'Ended'
+      timeContainer.innerHTML = 'Ended'
     }
   }, 1000)
-
 }

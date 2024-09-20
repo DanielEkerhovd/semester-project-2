@@ -3,6 +3,7 @@ import login from '/src/js/page/auth/login.mjs';
 import register from '/src/js/page/auth/register.mjs';
 import homepage from '/src/js/page/home/homepage.mjs';
 import listings from './page/listings.mjs';
+import item from './page/listing_item.mjs';
 
 import logOut from './handlers/misc/logout.mjs';
 
@@ -29,5 +30,8 @@ switch (currentPath) {
         break;
     case '/listings/':
         listings();
+        break;
+    case '/listing/':
+        item();
         break;
 };

@@ -1,9 +1,9 @@
-import { LISTING_PARAM } from '/src/js/api/keys.mjs'
+import { LISTING_BASE, LISTING_PARAM } from '/src/js/api/keys.mjs'
 
 export default async function listingsAPI(limit = 10, queryParam = false) {
   
 
-  let url = `${LISTING_PARAM}&limit=${limit}`
+  let url = `${LISTING_BASE}${LISTING_PARAM}&limit=${limit}`
   
   if (queryParam) {
     url += queryParam
