@@ -8,6 +8,9 @@ export default async function homepage() {
     const lastChanceContainer = document.getElementById('last_list');
     const newContainer = document.getElementById('new_list');
 
+    lastChanceContainer.innerHTML = '';
+    newContainer.innerHTML = '';
+
     const allListings = await listingsAPI(20, QUERY_NEWEST);
     const lastChanceListings = await listingsAPI(2, QUERY_ENDING_SOON);
     

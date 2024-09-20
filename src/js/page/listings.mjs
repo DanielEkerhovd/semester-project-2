@@ -4,7 +4,12 @@ import listCard from '../components/listing/list_card.mjs'
 export default async function listings() {
   let allListings = await listingsAPI(100)
   const listingsContainer = document.getElementById('listings_items')
-  const moreButton = document.getElementById('listings_more')
+  const more = document.getElementById('listings_more')
+  const moreButton = document.querySelector('#listings_more button')
+
+  listingsContainer.innerHTML = ''
+  more.classList.remove('hidden');
+  more.classList.add('flex');
 
   let count = 20
 
