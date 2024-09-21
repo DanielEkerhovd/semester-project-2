@@ -1,6 +1,6 @@
 import timeLeft from '../../handlers/misc/time_left.mjs'
 
-export default function listItem(listing) {
+export default function listItem(listing, status) {
   const listingID = listing.id
   const listingMedia = listing.media
   const listingTitle = listing.title
@@ -62,7 +62,13 @@ export default function listItem(listing) {
   title.innerText = listingTitle
 
   const owner = document.createElement('a')
-  owner.href = '../profile/?id=' + listingSeller.name
+
+  if (status) {
+    owner.href = '../profile/?user=' + listingSeller.name
+  } else {
+    owner.href = '/login/'
+  }
+
   owner.classList.add('font-title', 'lg:text-lg')
   owner.innerHTML = `By <span class="underline">${listingSeller.name}</span>`
 
@@ -177,10 +183,9 @@ export default function listItem(listing) {
     'lg:h-96',
   )
 
-  // Assume `listingMedia` is an array of media objects
   listingMedia.forEach((media, index) => {
     if (index === 0) {
-      return // Skip first for hero image if needed
+      return
     }
 
     const image = document.createElement('img')
@@ -304,156 +309,4 @@ export default function listItem(listing) {
   container.append(hero, listingContent)
 
   return container
-}
-
-//
-//   <!-- Listing content -->
-//   <section
-//     class="w-full xl:max-w-7xl flex flex-col xl:flex-row gap-10 items-center"
-//   >
-//     <!-- Listing info -->
-//     <div class="w-11/12 flex flex-col gap-10">
-//       <div class="">
-//         <h1 class="font-title text-3xl lg:text-4xl font-semibold">
-//           Brown Dog hat
-//         </h1>
-//         <a id="listing_owner" href="#" class="font-title lg:text-lg">
-//           By <span class="underline">John Doe</span>
-//         </a>
-//       </div>
-
-//       <div class="">
-//         <p class="font-text lg:text-lg max-w-2xl">
-//           Lorem ipsum odor amet, consectetuer adipiscing elit. Mauris
-//           dictumst neque id risus taciti odio. Maecenas nullam gravida praes
-//           ent volutpat vestibulum. Tempor taciti posuere pharetra molestie
-//           hac.
-//         </p>
-//       </div>
-
-//       <div class="">
-//         <div class="flex justify-between lg:max-w-2xl">
-//           <!-- Current bid -->
-//           <div>
-//             <h2 class="font-text text-faded text-lg lg:text-xl">
-//               Current bid
-//             </h2>
-//             <p
-//               id="listing_current_bid"
-//               class="font-text font-semibold text-xl lg:text-2xl"
-//             >
-//               <span>28</span>$
-//             </p>
-//           </div>
-//           <div class="flex flex-col items-end">
-//             <!-- Time left -->
-//             <h2 class="font-text text-faded text-lg lg:text-xl">
-//               Time left
-//             </h2>
-//             <div class="flex gap-1">
-//               <p id="listing_days" class="font-text lg:text-xl">
-//                 <span>1</span>d
-//               </p>
-//               <p id="listing_hours" class="font-text lg:text-xl">
-//                 <span>12</span>h
-//               </p>
-//               <p id="listing_minutes" class="font-text lg:text-xl">
-//                 <span>30</span>m
-//               </p>
-//               <p id="listing_seconds" class="font-text lg:text-xl">
-//                 <span>30</span>s
-//               </p>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       <div class="">
-//         <!-- Bid -->
-//         <button
-//           class="bg-highlight p-2 rounded-sm w-16 lg:w-32 xl:p-4 min-w-24 lg:text-xl"
-//         >
-//           BID
-//         </button>
-//       </div>
-//     </div>
-
-//     <!-- Media gallery -->
-
-//     <div class="w-full flex items-center justify-center">
-//       <div class="carousel-container w-full relative">
-//         <div
-//           id="carousel"
-//           class="relative flex overflow-hidden w-full h-52 sm:h-72 lg:h-96"
-//         >
-//           <!-- Images -->
-//           <img
-//             src="https://img.freepik.com/free-photo/silly-brown-newfoundland-dog-with-black-top-hat_493961-1702.jpg"
-//             class="carousel-item w-full cursor-pointer object-cover"
-//             alt="Image 1"
-//             data-id="1"
-//           />
-//           <img
-//             src="https://i.pinimg.com/736x/c6/42/9d/c6429d327986f6501b9771c38056e41a.jpg"
-//             class="carousel-item w-full hidden cursor-pointer object-cover"
-//             alt="Image 2"
-//             data-id="2"
-//           />
-//           <img
-//             src="https://i.etsystatic.com/18460845/r/il/8241c7/3139387828/il_570xN.3139387828_dxoe.jpg"
-//             class="carousel-item w-full hidden cursor-pointer object-cover"
-//             alt="Image 3"
-//             data-id="3"
-//           />
-//         </div>
-
-//         <!-- Carousel controls -->
-//         <button
-//           id="prev"
-//           class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-700 text-white px-4 py-2"
-//         >
-//           Prev
-//         </button>
-//         <button
-//           id="next"
-//           class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-700 text-white px-4 py-2"
-//         >
-//           Next
-//         </button>
-//       </div>
-
-//       <!-- Modal -->
-//       <div
-//         id="imageModal"
-//         class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden"
-//       >
-//         <span
-//           id="closeModal"
-//           class="absolute top-5 right-5 text-white text-3xl cursor-pointer"
-//           >&times;</span
-//         >
-//         <!-- Modal Image Carousel -->
-//         <div
-//           class="relative flex items-center justify-center w-full max-w-3xl"
-//         >
-//           <button
-//             id="modalPrev"
-//             class="absolute left-0 bg-gray-700 text-white px-4 py-2"
-//           >
-//             Prev
-//           </button>
-//           <img
-//             id="modalImage"
-//             class="max-w-full max-h-full w-full"
-//             src=""
-//             alt="Full Image"
-//           />
-//           <button
-//             id="modalNext"
-//             class="absolute right-0 bg-gray-700 text-white px-4 py-2"
-//           >
-//             Next
-//           </button>
-//         </div>
-//       </div>
-//     </div>
+};

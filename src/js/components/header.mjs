@@ -86,9 +86,10 @@ export default function header(status) {
   if (status) {
 
     const profileInfo = JSON.parse(localStorage.getItem('profile'))
-    console.log(profileInfo);
+    
+    const name = profileInfo.name
     const credits = profileInfo.credits
-    console.log(credits);
+    
 
     const create = document.createElement('a')
     create.href = '../create/'
@@ -102,7 +103,7 @@ export default function header(status) {
     nav.appendChild(create)
 
     const profile = document.createElement('a')
-    profile.href = '../profile/'
+    profile.href = `../profile/?user=${name}`
     const profileIcon = document.createElement('img')
     profileIcon.src = '../src/media/icons/hotbar/profile-b.png'
     profileIcon.alt = 'Profile icon'
@@ -144,6 +145,7 @@ export default function header(status) {
 
   // Apprend to the top of the body
   document.body.insertBefore(header, document.body.firstChild)
-    
+
   createFooter(status);
+
 };

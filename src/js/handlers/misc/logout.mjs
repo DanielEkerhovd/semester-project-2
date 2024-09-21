@@ -1,10 +1,11 @@
-export default function logOut() {
-  const logoutButton = document.getElementById('logout_button')
+export default function logOut(button) {
 
-  if (logoutButton) {
-    logoutButton.addEventListener('click', async () => {
+  if (button) {
+    button.addEventListener('click', async () => {
       localStorage.removeItem('accessToken')
       localStorage.removeItem('profile')
+      localStorage.removeItem('userName')
+      localStorage.removeItem('apiKey')
 
       window.location.href = '/'
     })

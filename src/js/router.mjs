@@ -4,13 +4,13 @@ import register from '/src/js/page/auth/register.mjs';
 import homepage from '/src/js/page/home/homepage.mjs';
 import listings from './page/listings.mjs';
 import item from './page/listing_item.mjs';
-import header from './components/header.mjs';
+import profile from './page/profile.mjs';
 
+
+import header from './components/header.mjs';
 import loginCheck from './handlers/misc/login_check.mjs';
-import logOut from './handlers/misc/logout.mjs';
 
 const currentPath = window.location.pathname;
-console.info('Current path for switch: ' + currentPath);
 
 const loggedIn = await loginCheck();
 
@@ -30,8 +30,7 @@ switch (currentPath) {
         break;
     case '/profile/':
         header(loggedIn);
-        // Put logout in the page folder of profile??
-        logOut();
+        profile(loggedIn);
         break;
     case '/listings/':
         header(loggedIn);
@@ -39,6 +38,6 @@ switch (currentPath) {
         break;
     case '/listing/':
         header(loggedIn);
-        item();
+        item(loggedIn);
         break;
 };
