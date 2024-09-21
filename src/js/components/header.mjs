@@ -21,12 +21,13 @@ export default function header(status) {
   )
 
   // Logo
-  const logo = document.createElement('a')
+  const logo = document.createElement('a');
+  logo.classList.add('h-12');
   logo.href = '../'
   const logoImg = document.createElement('img')
   logoImg.src = '../src/media/logo/Logo.png'
   logoImg.alt = 'BIDR logo'
-  logoImg.classList.add('h-full', 'object-contain')
+  logoImg.classList.add('h-full', 'object-cover')
   logo.appendChild(logoImg)
 
   // Search bar

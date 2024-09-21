@@ -1,4 +1,6 @@
 import timeCounter from '/src/js/handlers/misc/time_left.mjs'
+import addBid from '../../handlers/bid/add_bid.mjs'
+import buttonClick from '../../handlers/bid/button_click.mjs'
 // capitalize first letter of title
 const capitalize = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1)
@@ -18,12 +20,12 @@ export default function listCard(listing) {
     latestBidAmount = latestBid.amount
   }
 
-  const card = document.createElement('a')
-  card.href = '/listing/?id=' + cardId
-  card.classList.add('flex', 'flex-col', 'gap-3')
+  const card = document.createElement('div')
+  card.classList.add('flex', 'flex-col', 'gap-3', 'relative')
 
   // Hero section
-  const hero = document.createElement('div')
+  const hero = document.createElement('a')
+  hero.href = '/listing/?id=' + cardId
   hero.classList.add('h-36', 'sm:h-48', 'md:h-52', 'lg:h-64', 'w-full', 'relative')
 
   // Black overlay container
@@ -68,24 +70,34 @@ export default function listCard(listing) {
 
   // Info section
   const info = document.createElement('div')
-  info.classList.add('flex', 'justify-between')
+  info.classList.add('flex', 'justify-between', 'w-full')
 
   // Bidding section
   const bidding = document.createElement('div')
-  bidding.classList.add('flex', 'gap-3', 'justify-between')
+  bidding.classList.add('flex', 'gap-3', 'justify-between', 'transition-all')
 
   // Bid button
   const bidButton = document.createElement('button')
   bidButton.classList.add(
     'bg-highlight',
+    'flex',
+    'items-center',
+    'justify-center',
+    'font-title',
+    'font-semibold',
     'p-2',
     'rounded-sm',
     'w-16',
     'lg:w-32',
     'min-w-24',
     'lg:text-xl',
+    'transition-all'
   )
   bidButton.innerText = 'BID'
+
+  bidButton.addEventListener('click', () => {
+    buttonClick(bidding, bidButton, listing)
+  })
 
   // Current bid details
   const bidDetails = document.createElement('div')

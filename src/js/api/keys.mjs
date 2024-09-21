@@ -15,6 +15,10 @@ export const LISTING_PARAM = '?_bids=true&_seller=true&_active=true'
 export const PROFILE_BASE = `${API_BASE}auction/profiles/`
 export const PROFILE_PARAM = `?_listings=true`
 
+// Bids
+
+export const BID_BASE = `${API_BASE}auction/bids`
+
 // Api key
 
 export const API_KEY_BASE = `${API_BASE}auth/create-api-key`

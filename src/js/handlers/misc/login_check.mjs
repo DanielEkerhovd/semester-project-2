@@ -8,7 +8,6 @@ export default async function loginCheck() {
         await createKey();
         status = true;
     } catch (error) {
-        console.error(error);
     }
 
     return status;
