@@ -1,6 +1,8 @@
-import logOut from '../handlers/misc/logout.mjs';
+import logOut from '../handlers/misc/logout.mjs'
 
 export default function buildProfile(user) {
+  const currentUser = localStorage.getItem('userName')
+
   const profile = user.data
   const userName = profile.name
   const userBanner = profile.banner.url
@@ -70,32 +72,39 @@ export default function buildProfile(user) {
     'rounded-sm',
   )
 
-  // Settings
-  const settingsContainer = document.createElement('div')
-  settingsContainer.classList.add('flex', 'gap-1')
+  if (currentUser === userName) {
+    // Settings
+    const settingsContainer = document.createElement('div')
+    settingsContainer.classList.add('flex', 'gap-1')
 
-  const settingsButton = document.createElement('button')
-  settingsButton.classList.add('bg-highlight', 'rounded-sm', 'p-2')
+    const settingsButton = document.createElement('button')
+    settingsButton.classList.add('bg-highlight', 'rounded-sm', 'p-2')
 
-  const settingsIcon = document.createElement('img')
-  settingsIcon.src = '../src/media/icons/edit-b.png'
-  settingsIcon.classList.add('size-6', 'md:size-8')
+    const settingsIcon = document.createElement('img')
+    settingsIcon.src = '../src/media/icons/edit-b.png'
+    settingsIcon.classList.add('size-6', 'md:size-8')
 
-  const logoutButton = document.createElement('button')
-  logoutButton.id = 'logout_button'
-  logoutButton.classList.add(
-    'bg-black',
-    'font-text',
-    'font-light',
-    'text-white',
-    'p-1',
-    'grow',
-  )
-  logoutButton.textContent = 'Log out'
+    const logoutButton = document.createElement('button')
+    logoutButton.id = 'logout_button'
+    logoutButton.classList.add(
+      'bg-black',
+      'font-text',
+      'font-light',
+      'text-white',
+      'p-1',
+      'grow',
+    )
+    logoutButton.textContent = 'Log out'
 
-  settingsButton.append(settingsIcon)
-  settingsContainer.append(settingsButton, logoutButton)
-  profileImageContainer.append(profileImage, settingsContainer)
+    settingsButton.append(settingsIcon)
+    settingsContainer.append(settingsButton, logoutButton)
+
+    profileImageContainer.append(profileImage, settingsContainer)
+
+    logOut(logoutButton)
+  } else {
+    profileImageContainer.append(profileImage)
+  }
 
   // Profile bio
   const profileBioContainer = document.createElement('div')
@@ -183,7 +192,5 @@ export default function buildProfile(user) {
 
   container.append(bannerContainer, profileContent)
 
-  logOut(logoutButton);
-
   return container
-};
+}
