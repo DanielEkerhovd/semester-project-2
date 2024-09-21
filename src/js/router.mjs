@@ -9,10 +9,13 @@ import profile from './page/profile.mjs';
 
 import header from './components/header.mjs';
 import loginCheck from './handlers/misc/login_check.mjs';
+import updateUser from './handlers/auth/update_user.mjs';
 
 const currentPath = window.location.pathname;
 
 const loggedIn = await loginCheck();
+
+updateUser();
 
 
 switch (currentPath) {

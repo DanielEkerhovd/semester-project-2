@@ -1,5 +1,4 @@
 import timeCounter from '/src/js/handlers/misc/time_left.mjs'
-import addBid from '../../handlers/bid/add_bid.mjs'
 import buttonClick from '../../handlers/bid/button_click.mjs'
 // capitalize first letter of title
 const capitalize = (str) => {

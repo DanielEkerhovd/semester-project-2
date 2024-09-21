@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,32 +9,38 @@
 /* styles.css */
 
 input {
-    @apply font-text;
-    @apply font-medium;
-    @apply text-text-color;
+  @apply font-text;
+  @apply font-medium;
+  @apply text-text-color;
 }
 
-input::placeholder, textarea::placeholder {
-    @apply text-placeholder-text;
-    @apply font-text;
-    @apply font-medium;
-};
+input::placeholder,
+textarea::placeholder {
+  @apply text-placeholder-text;
+  @apply font-text;
+  @apply font-medium;
+}
 
 label {
-    @apply md:text-lg
+  @apply md:text-lg;
 }
 
 @layer base {
+  h2 {
+    @apply font-title;
+    @apply font-semibold;
+    @apply text-2xl;
+  }
 
-    h2 {
-        @apply font-title;
-        @apply font-semibold;
-        @apply text-2xl
-    }
+  button {
+    @apply font-title;
+    @apply font-semibold;
+    @apply text-text-color;
+  }
 
-    button {
-        @apply font-title;
-        @apply font-semibold;
-        @apply text-text-color;
-    }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
