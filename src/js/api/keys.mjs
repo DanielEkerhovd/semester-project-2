@@ -26,3 +26,7 @@ export const QUERY_ENDING_SOON = '&sort=endsAt&sortOrder=asc'
 export const QUERY_HIGHEST_BID = '&sort=bids&sortOrder=desc'
 export const QUERY_LOWEST_BID = '&sort=bids&sortOrder=asc'
 export const QUERY_PAGE = '&page='
+
+// Noroff KEY
+
+export const NOROFF_KEY = 'x-Noroff-API-Key';

@@ -63,7 +63,7 @@ export default function updateModal(content) {
     'block',
     'text-sm',
     'font-text',
-    'font-light',
+    'font-semibold',
     'mb-2',
   )
   profileImageLabel.htmlFor = 'profileImage'
@@ -92,7 +92,7 @@ export default function updateModal(content) {
     'block',
     'text-sm',
     'font-text',
-    'font-light',
+    'font-semibold',
     'mb-2',
   )
   profileBannerLabel.htmlFor = 'profileBanner'
@@ -121,7 +121,7 @@ export default function updateModal(content) {
     'block',
     'text-sm',
     'font-text',
-    'font-light',
+    'font-semibold',
     'mb-2',
   )
   profileBioLabel.htmlFor = 'profileBio'

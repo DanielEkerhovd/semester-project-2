@@ -1,4 +1,6 @@
 import createFooter from './footer.mjs'
+import createNewListing from '../components/listing/create_modal.mjs'
+import handleListing from '../handlers/new_listing.mjs'
 
 export default function header(status) {
 
@@ -91,8 +93,8 @@ export default function header(status) {
     const credits = profileInfo.credits
     
 
-    const create = document.createElement('a')
-    create.href = '../create/'
+    const create = document.createElement('div')
+    create.id = 'create_listing_1'
     create.classList.add('hidden', 'md:block')
     const createIcon = document.createElement('img')
     createIcon.src = '../src/media/icons/hotbar/create-b.png'
@@ -121,6 +123,14 @@ export default function header(status) {
     wallet.appendChild(walletText)
     nav.appendChild(profile)
     nav.appendChild(wallet)
+
+    const newListingModal = createNewListing();
+
+    document.body.appendChild(newListingModal);
+
+    create.addEventListener('click', () => {
+      newListingModal.classList.remove('hidden')
+    })
     } 
   else {
     const login = document.createElement('a')
@@ -148,4 +158,5 @@ export default function header(status) {
 
   createFooter(status);
 
+  handleListing();
 };

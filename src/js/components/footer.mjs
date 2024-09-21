@@ -36,8 +36,8 @@ export default function createFooter(status) {
     browseImg.classList.add('size-10/12', 'object-contain')
     browse.appendChild(browseImg)
 
-    const create = document.createElement('a')
-    create.href = '#'
+    const create = document.createElement('div')
+    create.id = 'create_listing_2'
     create.classList.add('h-full', 'flex', 'justify-center', 'items-center')
     const createImg = document.createElement('img')
     createImg.src = '../src/media/icons/hotbar/create-w.png'
