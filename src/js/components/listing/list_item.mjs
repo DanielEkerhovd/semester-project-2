@@ -18,15 +18,27 @@ export default function listItem(listing, status) {
   const listingEndTime = listing.endsAt
 
   const container = document.createElement('div')
-  container.classList.add('flex', 'flex-col', 'items-center', 'gap-5', 'md:gap-10')
+  container.classList.add(
+    'flex',
+    'flex-col',
+    'items-center',
+    'gap-5',
+    'md:gap-10',
+  )
 
   // Hero section
   const hero = document.createElement('div')
   hero.classList.add('w-screen', 'md:max-w-7xl')
 
   const heroImage = document.createElement('img')
-  heroImage.src = listingMedia[0].url
-  heroImage.alt = `${listingTitle} image`
+
+  if (listingMedia.length === 0) {
+    heroImage.src = '../src/media/placeholder.jpg'
+    heroImage.alt = 'Placeholder image'
+  } else {
+    heroImage.src = listingMedia[0].url
+    heroImage.alt = `${listingTitle} image`
+  }
   heroImage.id = 'hero_image'
   heroImage.classList.add(
     'w-full',
@@ -34,7 +46,7 @@ export default function listItem(listing, status) {
     'md:h-64',
     'lg:h-96',
     'object-cover',
-    'drop-shadow-2xl'
+    'drop-shadow-2xl',
   )
 
   hero.appendChild(heroImage)
@@ -167,7 +179,7 @@ export default function listItem(listing, status) {
   const carouselContainer = document.createElement('div')
   carouselContainer.classList.add('carousel-container', 'w-full', 'relative')
 
-  if (listingMedia.length === 1) {
+  if (listingMedia.length <= 1) {
     carouselContainer.classList.add('hidden')
   }
 
@@ -243,7 +255,7 @@ export default function listItem(listing, status) {
     'flex',
     'items-center',
     'justify-center',
-    'hidden'
+    'hidden',
   )
 
   const closeModal = document.createElement('span')
@@ -255,7 +267,7 @@ export default function listItem(listing, status) {
     'text-white',
     'text-3xl',
     'cursor-pointer',
-    'z-10'
+    'z-10',
   )
   closeModal.innerHTML = '&times;'
   modal.appendChild(closeModal)
@@ -309,4 +321,4 @@ export default function listItem(listing, status) {
   container.append(hero, listingContent)
 
   return container
-};
+}

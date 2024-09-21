@@ -57,7 +57,7 @@ export default function listCard(listing) {
     img.src = cardMedia[0].url
     img.alt = cardTitle + ' image'
   } else {
-    img.src = '../src/media/placeholderimg.png'
+    img.src = '../src/media/placeholder.jpg'
     img.alt = 'Placeholder image'
   }
 

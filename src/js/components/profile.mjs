@@ -79,6 +79,7 @@ export default function buildProfile(user) {
 
     const settingsButton = document.createElement('button')
     settingsButton.classList.add('bg-highlight', 'rounded-sm', 'p-2')
+    settingsButton.id = 'update_button'
 
     const settingsIcon = document.createElement('img')
     settingsIcon.src = '../src/media/icons/edit-b.png'
@@ -160,7 +161,7 @@ export default function buildProfile(user) {
       'bg-highlight',
       'p-2',
       'grow',
-      'min-w-40',
+      'min-w-32',
       'md:text-xl',
     )
 

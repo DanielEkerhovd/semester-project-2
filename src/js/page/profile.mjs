@@ -1,6 +1,8 @@
 import buildProfile from '../components/profile.mjs'
 import fetchUser from '../api/user/profile.mjs'
 import listCard from '../components/listing/list_card.mjs'
+import modal from '../handlers/auth/update_profile.mjs'
+
 
 export default async function profile(loginStatus) {
   if (!loginStatus) {
@@ -17,6 +19,8 @@ export default async function profile(loginStatus) {
 
   const profileContainer = document.getElementById('profile');
   const listingsContainer = document.getElementById('profile_list');
+  
+  listingsContainer.innerHTML = '';
 
   const profile = buildProfile(content);
 
@@ -41,4 +45,9 @@ export default async function profile(loginStatus) {
   };
 
   profileContainer.appendChild(profile);
+
+  if (user === localStorage.getItem('userName')) {
+    modal(content);
+  };
+  
 };
