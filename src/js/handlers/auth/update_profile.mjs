@@ -1,6 +1,5 @@
 import createModal from '../../components/update_modal.mjs'
 import updateProfile from '../../api/user/update_profile.mjs'
-import profile from '../../page/profile.mjs'
 
 export default function update(content) {
   const modal = createModal(content)

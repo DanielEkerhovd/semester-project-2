@@ -218,11 +218,13 @@ export default function listItem(listing, status) {
   carouselControlsPrev.id = 'prev'
   carouselControlsPrev.classList.add(
     'absolute',
-    'left-0',
+    'left-2',
     'top-1/2',
     '-translate-y-1/2',
-    'bg-gray-700',
+    'bg-black',
     'text-white',
+    'font-title',
+    'rounded-sm',
     'px-4',
     'py-2',
   )
@@ -232,11 +234,13 @@ export default function listItem(listing, status) {
   carouselControlsNext.id = 'next'
   carouselControlsNext.classList.add(
     'absolute',
-    'right-0',
+    'right-2',
     'top-1/2',
     '-translate-y-1/2',
-    'bg-gray-700',
+    'bg-black',
     'text-white',
+    'font-title',
+    'rounded-sm',
     'px-4',
     'py-2',
   )
@@ -286,9 +290,11 @@ export default function listItem(listing, status) {
   modalPrev.id = 'modalPrev'
   modalPrev.classList.add(
     'absolute',
-    'left-0',
-    'bg-gray-700',
+    'left-2',
+    'bg-black',
     'text-white',
+    'font-title',
+    'rounded-sm',
     'px-4',
     'py-2',
   )
@@ -304,9 +310,11 @@ export default function listItem(listing, status) {
   modalNext.id = 'modalNext'
   modalNext.classList.add(
     'absolute',
-    'right-0',
-    'bg-gray-700',
+    'right-2',
+    'bg-black',
     'text-white',
+    'font-title',
+    'rounded-sm',
     'px-4',
     'py-2',
   )
