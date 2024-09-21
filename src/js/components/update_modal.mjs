@@ -1,8 +1,6 @@
 export default function updateModal(content) {
   const user = content.data
 
-  console.log(user)
-
   const bio = user.bio ? user.bio : ''
   const image = user.avatar.url ? user.avatar.url : ''
   const banner = user.banner.url ? user.banner.url : ''

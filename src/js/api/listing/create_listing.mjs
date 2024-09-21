@@ -1,4 +1,4 @@
-import { LISTING_BASE} from '../utils.js'
+import { LISTING_BASE} from '../keys.mjs'
 
 export default async function createListing(data) {
   const token = localStorage.getItem('accessToken')

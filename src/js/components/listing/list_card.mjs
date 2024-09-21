@@ -24,7 +24,7 @@ export default function listCard(listing) {
 
   // Hero section
   const hero = document.createElement('div')
-  hero.classList.add('h-36', 'sm:h-48', 'md:h-52', 'lg:h-64')
+  hero.classList.add('h-36', 'sm:h-48', 'md:h-52', 'lg:h-64', 'w-full', 'relative')
 
   // Black overlay container
   const overlay = document.createElement('div')
@@ -34,7 +34,7 @@ export default function listCard(listing) {
     'py-2',
     'px-4',
     'w-auto',
-    'absolute',
+    'absolute'
   )
 
   // Title inside the overlay

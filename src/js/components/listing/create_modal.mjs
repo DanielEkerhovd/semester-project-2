@@ -60,7 +60,8 @@ export default function newListingModal() {
   )
   title.textContent = 'CREATE NEW LISTING'
 
-  const form = document.createElement('form')
+  const form = document.createElement('form');
+  form.id = 'newListingForm'
   form.classList.add('flex', 'flex-col', 'gap-3', 'max-w-2xl', 'm-auto')
 
   const titleContainer = document.createElement('div')
@@ -75,6 +76,7 @@ export default function newListingModal() {
   titleInput.name = 'title'
   titleInput.id = 'title'
   titleInput.placeholder = 'Insert title here'
+
   titleInput.classList.add('rounded-sm', 'px-3', 'h-10')
 
   titleContainer.append(titleLabel, titleInput)
@@ -124,7 +126,8 @@ export default function newListingModal() {
 
   dateContainer.append(dateLabel, dateInput)
 
-  const media = document.createElement('div')
+  const media = document.createElement('div');
+  media.id = 'media_container'
   media.classList.add('flex', 'flex-col', 'gap-5')
   const mediaLabel = document.createElement('label')
   mediaLabel.classList.add('text-lg', 'font-bold', 'font-title')
