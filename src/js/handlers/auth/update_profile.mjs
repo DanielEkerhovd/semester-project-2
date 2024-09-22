@@ -46,7 +46,7 @@ export default function update(content) {
       await updateProfile(content.data.name, data)
       window.location.reload()
     } catch (error) {
-      console.error(error)
+      
     }
   })
 }

@@ -4,10 +4,6 @@ export default function search() {
     const searchButton = document.getElementById('search_button');
 
     searchButton.addEventListener('click', async () => {
-
-        if (!searchInput.value) {
-            return;
-        }
         const searchValue = searchInput.value;
         window.location.href = `../listings/?q=${searchValue}`;
     });

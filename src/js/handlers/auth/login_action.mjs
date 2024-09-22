@@ -19,7 +19,6 @@ export default async function loginUser(emailValue, passwordValue) {
 
   // Fetches profile
   const profile = await fetchProfile();
-  console.log(profile);
   localStorage.setItem('profile', JSON.stringify(profile.data));
   
   // Redirects to dashboard
