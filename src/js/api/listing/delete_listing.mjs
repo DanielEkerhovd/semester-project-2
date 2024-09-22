@@ -1,5 +1,11 @@
 import { LISTING_BASE } from '../keys.mjs';
 
+/**
+ * Deletes a listing from the API
+ * @param {number} id - The id of the listing to delete
+ * @returns {Promise} - Deletes the listing with the given id, returning 204 if successful
+ */
+
 export default async function deleteListing(id) {
 
     const token = localStorage.getItem('accessToken');

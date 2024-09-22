@@ -1,5 +1,13 @@
 import { PROFILE_BASE, PROFILE_PARAM } from '../keys.mjs';
 
+/**
+ * Fetches a user profile from the API
+ * @param {string} user - The user to fetch the profile for
+ * @param {boolean} listings - Whether to fetch the user's listings
+ * @returns {Promise} - Returns the user's profile
+ */
+
+
 export default async function getProfile(user, listings) {
   const token = localStorage.getItem('accessToken');
   const key = localStorage.getItem('apiKey');

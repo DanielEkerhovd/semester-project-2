@@ -1,5 +1,11 @@
 import { API_KEY_BASE } from '../keys.mjs';
 
+/**
+ * Creates a new API key
+ * @returns {Promise} - Returns the new API key
+ */
+
+
 export default async function createKey() {
   const accessToken = localStorage.getItem('accessToken');
 

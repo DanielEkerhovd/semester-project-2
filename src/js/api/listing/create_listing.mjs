@@ -1,5 +1,12 @@
 import { LISTING_BASE } from '../keys.mjs';
 
+/**
+ * Creates a listing on the API
+ * @param {object} data - The listing data
+ * @returns {Promise} - Returns the created listing
+ */
+
+
 export default async function createListing(data) {
   const token = localStorage.getItem('accessToken');
   const key = localStorage.getItem('apiKey');
