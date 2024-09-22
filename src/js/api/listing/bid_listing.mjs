@@ -1,5 +1,12 @@
 import { LISTING_BASE } from '../keys.mjs';
 
+/**
+ * Sends a bid to the API
+ * @param {object} listing - The listing to bid on
+ * @param {number} bid - The bid amount
+ * @returns {Promise} - Returns the listing with the new bid
+ */
+
 export default async function sendBid(listing, bid) {
   const token = localStorage.getItem('accessToken');
   const key = localStorage.getItem('apiKey');
