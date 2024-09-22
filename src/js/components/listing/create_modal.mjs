@@ -15,6 +15,7 @@ export default function newListingModal() {
   );
 
   const modalContent = document.createElement('div');
+  modalContent.id = 'newListingContent';
   modalContent.classList.add(
     'bg-highlight',
     'w-11/12',
