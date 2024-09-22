@@ -81,24 +81,24 @@ export default async function createListing() {
         errorBox.appendChild(endsAtError);
       }
 
-      if (mediaData.length === 0) {
+      if (mediaData[0].url === '' && mediaData.length === 1) {
         const mediaError = document.createElement('p');
         mediaError.textContent = 'At least one image is required';
         errorBox.appendChild(mediaError);
-      }
+      } else {
+        let isError = false;
 
-      let isError = false;
+        mediaData.forEach((media) => {
+          if (!media.url) {
+            isError = true;
+          }
+        });
 
-      mediaData.forEach((media) => {
-        if (!media.url) {
-          isError = true;
+        if (isError) {
+          const mediaError = document.createElement('p');
+          mediaError.textContent = 'All images must have a URL';
+          errorBox.appendChild(mediaError);
         }
-      });
-
-      if (isError) {
-        const mediaError = document.createElement('p');
-        mediaError.textContent = 'Media is required';
-        errorBox.appendChild(mediaError);
       }
 
       modalContainer.insertBefore(errorBox, modalContainer.childNodes[1]);
