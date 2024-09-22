@@ -1,4 +1,4 @@
-import { USER_REGISTER } from '../keys.mjs'
+import { USER_REGISTER } from '../keys.mjs';
 
 export default async function register(data) {
   const response = await fetch(USER_REGISTER, {
@@ -7,11 +7,11 @@ export default async function register(data) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
-  })
+  });
 
   if (!response.ok) {
-    throw new Error('Invalid email or password')
+    throw new Error('Invalid email or password');
   }
 
-  return response.json()
+  return response.json();
 }

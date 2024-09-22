@@ -1,4 +1,4 @@
-import { USER_LOGIN } from '../keys.mjs'
+import { USER_LOGIN } from '../keys.mjs';
 
 export default async function login(email, password) {
   const response = await fetch(USER_LOGIN, {
@@ -7,11 +7,11 @@ export default async function login(email, password) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ email, password }),
-  })
+  });
 
   if (!response.ok) {
-    throw new Error('Invalid email or password')
+    throw new Error('Invalid email or password');
   }
 
-  return response.json()
+  return response.json();
 }
