@@ -1,7 +1,9 @@
 import listingsAPI from '../api/listing/fetch_listing.mjs'
 import listCard from '../components/listing/list_card.mjs'
+import loginCheck from '../handlers/misc/login_check.mjs'
 
 export default async function listings() {
+
   let allListings = await listingsAPI(100)
   const listingsContainer = document.getElementById('listings_items')
   const more = document.getElementById('listings_more')
@@ -11,12 +13,14 @@ export default async function listings() {
   more.classList.remove('hidden');
   more.classList.add('flex');
 
+  const loggedIn = await loginCheck();
+
   let count = 20
 
   //Initial render
   for (let i = 0; i < count; i++) {
     const listing = allListings[i]
-    const newCard = listCard(listing)
+    const newCard = listCard(listing, loggedIn)
     listingsContainer.appendChild(newCard)
   }
 
