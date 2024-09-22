@@ -14,10 +14,6 @@ import loginCheck from './handlers/misc/login_check.mjs';
 const currentPath = window.location.pathname;
 
 const loggedIn = await loginCheck();
-<<<<<<< HEAD
-updateUser();
-=======
->>>>>>> testing
 
 switch (currentPath) {
     case '/':
