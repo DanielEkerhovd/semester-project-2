@@ -20,6 +20,7 @@ export default async function listings() {
       'font-title',
       'md:grid-cols-1',
     );
+    listingsContainer.classList.remove('md:grid-cols-2');
     listingsContainer.innerHTML = 'No listings found';
     return;
   }
