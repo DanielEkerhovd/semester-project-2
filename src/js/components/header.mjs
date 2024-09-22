@@ -78,6 +78,11 @@ export default function header(status) {
   searchBar.appendChild(searchInput)
   searchBar.appendChild(searchButton)
 
+  const currentPage = window.location.pathname
+  if (currentPage === '/listings/') {
+    searchInput.value = new URLSearchParams(window.location.search).get('q')
+  }
+
   // Nav icons and economy
   const nav = document.createElement('nav')
   nav.classList.add('flex', 'items-center', 'gap-2', 'ml-auto')

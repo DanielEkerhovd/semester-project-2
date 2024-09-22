@@ -7,6 +7,10 @@ const capitalize = (str) => {
 }
 
 export default function listCard(listing, status) {
+  
+  if (!listing) {
+    return
+  }
 
   const cardId = listing.id
   const cardTitle = capitalize(listing.title)
