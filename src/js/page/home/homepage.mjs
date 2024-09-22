@@ -23,7 +23,7 @@ export default async function homepage() {
     });
 
     allListings.forEach(listing => {
-        const newCard = listCard(listing);
+        const newCard = listCard(listing, loggedIn);
         newContainer.appendChild(newCard);
     });
 
