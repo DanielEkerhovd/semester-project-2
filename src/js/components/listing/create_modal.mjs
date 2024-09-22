@@ -228,6 +228,15 @@ export default function newListingModal() {
   );
   submit.textContent = 'Publish';
 
+  // If click outside the modal, close it
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
   form.appendChild(titleContainer);
   form.appendChild(descriptionContainer);
   form.appendChild(dateContainer);

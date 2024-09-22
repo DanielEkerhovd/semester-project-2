@@ -60,5 +60,14 @@ export default function createFooter(status) {
     footer.appendChild(nav);
 
     document.body.appendChild(footer);
+
+    const newListingModal = document.getElementById('newListingModal');
+
+    create.addEventListener('click', () => {
+      newListingModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+    
+
   }
 }

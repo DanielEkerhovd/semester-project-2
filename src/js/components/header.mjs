@@ -148,6 +148,7 @@ export default function header(status) {
 
     create.addEventListener('click', () => {
       newListingModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     });
   } else {
     const login = document.createElement('a');
