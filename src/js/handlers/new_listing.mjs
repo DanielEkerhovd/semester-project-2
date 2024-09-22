@@ -59,7 +59,7 @@ export default async function createListing() {
       window.location.href = `/listing/?id=${id}`
 
     } catch (error) {
-      console.error(error)
+      
     }
   })
 }

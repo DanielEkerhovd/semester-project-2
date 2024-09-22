@@ -18,6 +18,6 @@ export default async function listingsAPI(limit = 10, param = '', page = 1) {
     const listings = data.data
     return listings
   } catch (error) {
-    console.error(error)
+    
   }
 };

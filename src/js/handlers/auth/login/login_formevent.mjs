@@ -21,7 +21,7 @@ export default function loginFormEvent() {
       try {
         await loginUser(emailValue.trim(), passwordValue.trim())
       } catch (error) {
-        console.error(error)
+        
         errorBox(errorMessage, true)
       }
     })

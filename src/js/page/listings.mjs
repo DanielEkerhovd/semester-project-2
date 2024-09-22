@@ -62,8 +62,6 @@ export default async function listings() {
 
       if (allListings.length < count) {
         count = allListings.length
-        console.log(allListings);
-        console.log(count);
 
         const noMore = document.createElement('p')
         noMore.classList.add(

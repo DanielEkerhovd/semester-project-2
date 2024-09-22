@@ -1,10 +1,17 @@
 import createFooter from './footer.mjs'
 import createNewListing from '../components/listing/create_modal.mjs'
 import handleListing from '../handlers/new_listing.mjs'
+import updateUser from '../handlers/auth/update_user.mjs'
+
 
 import search from '../handlers/sort/search.mjs'
 
 export default function header(status) {
+
+  if (status) {
+    updateUser();
+  }
+
 
   const header = document.createElement('header')
   header.classList.add('mt-5', 'w-11/12', 'xl:max-w-7xl', 'm-auto')

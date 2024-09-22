@@ -11,6 +11,6 @@ export default async function listingsAPI(id) {
     const listing = data.data
     return listing
   } catch (error) {
-    console.error(error)
+    
   }
 }

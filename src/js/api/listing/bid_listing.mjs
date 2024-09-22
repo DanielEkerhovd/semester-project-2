@@ -6,10 +6,6 @@ export default async function sendBid(listing, bid) {
 
   const id = listing.id
 
-  console.log(token);
-    console.log(key);
-  console.log(id);
-
   const userBid = {
     amount: bid,
   }
@@ -25,8 +21,6 @@ export default async function sendBid(listing, bid) {
     },
     body: JSON.stringify(userBid),
   })
-
-  console.log(userBid);
 
   if (!response.ok) {
     throw new Error('An error occurred')
