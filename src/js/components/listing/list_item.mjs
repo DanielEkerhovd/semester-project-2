@@ -1,4 +1,5 @@
 import timeLeft from '../../handlers/misc/time_left.mjs'
+import handleBid from '../../handlers/bid/button_click.mjs'
 
 export default function listItem(listing, status) {
   const listingID = listing.id
@@ -7,6 +8,7 @@ export default function listItem(listing, status) {
   const listingSeller = listing.seller
   const listingDescription = listing.description
   const bids = listing.bids
+  const itemOwner = listing.seller.name
 
   let currentBid = 0
 
@@ -156,6 +158,14 @@ export default function listItem(listing, status) {
   timeContainer.append(timeTitle, timeLeftContainer)
   valuesContainer.append(bidContainer, timeContainer)
 
+  listingInfo.append(titleContainer, description, valuesContainer)
+
+   // Bidding section
+   const bidding = document.createElement('div')
+   bidding.classList.add('flex', 'gap-3', 'justify-between', 'transition-all')
+
+   if (status && itemOwner !== localStorage.getItem('userName')) {
+
   // Bid button
   const bidButton = document.createElement('button')
   bidButton.id = 'bid_button'
@@ -170,7 +180,17 @@ export default function listItem(listing, status) {
   )
   bidButton.innerText = 'BID'
 
-  listingInfo.append(titleContainer, description, valuesContainer, bidButton)
+  bidding.appendChild(bidButton)
+
+  listingInfo.appendChild(bidding)
+
+  bidButton.addEventListener('click', () => {
+    handleBid(bidding, bidButton, listing)
+  })
+
+};
+
+  
 
   // Media gallery
   const mediaGallery = document.createElement('div')

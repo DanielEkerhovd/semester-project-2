@@ -2,6 +2,8 @@ import createFooter from './footer.mjs'
 import createNewListing from '../components/listing/create_modal.mjs'
 import handleListing from '../handlers/new_listing.mjs'
 
+import search from '../handlers/sort/search.mjs'
+
 export default function header(status) {
 
   const header = document.createElement('header')
@@ -47,6 +49,7 @@ export default function header(status) {
   )
   const searchInput = document.createElement('input')
   searchInput.type = 'text'
+  searchInput.id = 'search_input'
   searchInput.placeholder = 'Search for an item'
   searchInput.classList.add(
     'w-full',
@@ -55,8 +58,8 @@ export default function header(status) {
     'px-3',
     'bg-input-field',
   )
-  const searchButton = document.createElement('button')
-  searchButton.type = 'submit'
+  const searchButton = document.createElement('div');
+  searchButton.id = 'search_button'
   searchButton.classList.add(
     'absolute',
     'right-2',
@@ -74,6 +77,11 @@ export default function header(status) {
   searchButton.appendChild(searchIcon)
   searchBar.appendChild(searchInput)
   searchBar.appendChild(searchButton)
+
+  const currentPage = window.location.pathname
+  if (currentPage === '/listings/') {
+    searchInput.value = new URLSearchParams(window.location.search).get('q')
+  }
 
   // Nav icons and economy
   const nav = document.createElement('nav')
@@ -160,4 +168,5 @@ export default function header(status) {
   createFooter(status);
 
   handleListing();
+  search();
 };

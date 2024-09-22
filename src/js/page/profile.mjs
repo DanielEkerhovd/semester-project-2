@@ -15,6 +15,10 @@ export default async function profile(loginStatus) {
   const content = await fetchUser(user);
   const profileLists = await fetchUser(user, true);
 
+  // Update title
+
+  document.title = `BIDR | ${user}`;
+
   const listContent = profileLists.data;
 
   const profileContainer = document.getElementById('profile');
@@ -39,7 +43,7 @@ export default async function profile(loginStatus) {
     listingsContainer.appendChild(noListings)
   } else {
     listContent.forEach((listing) => {
-      const card = listCard(listing)
+      const card = listCard(listing, loginStatus)
       listingsContainer.appendChild(card)
     })
   };

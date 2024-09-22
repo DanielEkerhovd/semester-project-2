@@ -1,13 +1,19 @@
 import timeCounter from '/src/js/handlers/misc/time_left.mjs'
 import buttonClick from '../../handlers/bid/button_click.mjs'
+
 // capitalize first letter of title
 const capitalize = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-export default function listCard(listing) {
+export default function listCard(listing, status) {
+  if (!listing) {
+    return
+  }
+
   const cardId = listing.id
   const cardTitle = capitalize(listing.title)
+  const cardOwner = listing.seller.name
 
   const cardMedia = listing.media
   const cardEnd = listing.endsAt
@@ -25,7 +31,14 @@ export default function listCard(listing) {
   // Hero section
   const hero = document.createElement('a')
   hero.href = '/listing/?id=' + cardId
-  hero.classList.add('h-36', 'sm:h-48', 'md:h-52', 'lg:h-64', 'w-full', 'relative')
+  hero.classList.add(
+    'h-36',
+    'sm:h-48',
+    'md:h-52',
+    'lg:h-64',
+    'w-full',
+    'relative',
+  )
 
   // Black overlay container
   const overlay = document.createElement('div')
@@ -35,7 +48,7 @@ export default function listCard(listing) {
     'py-2',
     'px-4',
     'w-auto',
-    'absolute'
+    'absolute',
   )
 
   // Title inside the overlay
@@ -75,28 +88,32 @@ export default function listCard(listing) {
   const bidding = document.createElement('div')
   bidding.classList.add('flex', 'gap-3', 'justify-between', 'transition-all')
 
-  // Bid button
-  const bidButton = document.createElement('button')
-  bidButton.classList.add(
-    'bg-highlight',
-    'flex',
-    'items-center',
-    'justify-center',
-    'font-title',
-    'font-semibold',
-    'p-2',
-    'rounded-sm',
-    'w-16',
-    'lg:w-32',
-    'min-w-24',
-    'lg:text-xl',
-    'transition-all'
-  )
-  bidButton.innerText = 'BID'
+  if (status && cardOwner !== localStorage.getItem('userName')) {
+    // Bid button
+    const bidButton = document.createElement('button')
+    bidButton.classList.add(
+      'bg-highlight',
+      'flex',
+      'items-center',
+      'justify-center',
+      'font-title',
+      'font-semibold',
+      'p-2',
+      'rounded-sm',
+      'w-16',
+      'lg:w-32',
+      'min-w-24',
+      'lg:text-xl',
+      'transition-all',
+    )
+    bidButton.innerText = 'BID'
 
-  bidButton.addEventListener('click', () => {
-    buttonClick(bidding, bidButton, listing)
-  })
+    bidding.appendChild(bidButton)
+
+    bidButton.addEventListener('click', () => {
+      buttonClick(bidding, bidButton, listing)
+    })
+  }
 
   // Current bid details
   const bidDetails = document.createElement('div')
@@ -114,7 +131,6 @@ export default function listCard(listing) {
   bidDetails.appendChild(bidText)
   bidDetails.appendChild(bidValue)
 
-  bidding.appendChild(bidButton)
   bidding.appendChild(bidDetails)
 
   // Time section

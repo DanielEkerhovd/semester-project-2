@@ -14,7 +14,6 @@ import updateUser from './handlers/auth/update_user.mjs';
 const currentPath = window.location.pathname;
 
 const loggedIn = await loginCheck();
-
 updateUser();
 
 const user = JSON.parse(localStorage.getItem('profile'));
@@ -23,7 +22,6 @@ console.log(user);
 
 
 switch (currentPath) {
-
     case '/':
     case '/index.html':
         header(loggedIn);
