@@ -19,8 +19,6 @@ export default async function listingsAPI(limit = 10, param = '', page = 1) {
     url = `${LISTING_BASE}/search?q=${searchParam}&${LISTING_PARAM}&limit=${limit}&page=${page}${param}`;
   }
 
-  console.log('url', url);
-
   try {
     const response = await fetch(url);
     const data = await response.json();

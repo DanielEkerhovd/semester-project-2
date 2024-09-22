@@ -25,8 +25,6 @@ export default async function deleteListing(id) {
     try {
         const response = await fetch(url, options);
 
-        console.log(response);
-
         if (!response.ok) {
             throw new Error('An error occurred');
         };
