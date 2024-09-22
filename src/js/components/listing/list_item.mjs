@@ -1,5 +1,6 @@
 import timeLeft from '../../handlers/misc/time_left.mjs';
 import handleBid from '../../handlers/bid/button_click.mjs';
+import deleteListing from '../../api/listing/delete_listing.mjs';
 
 export default function listItem(listing, status) {
   const listingID = listing.id;
@@ -185,6 +186,103 @@ export default function listItem(listing, status) {
 
     bidButton.addEventListener('click', () => {
       handleBid(bidding, bidButton, listing);
+    });
+  }
+
+  if (status && itemOwner === localStorage.getItem('userName')) {
+    const deleteButton = document.createElement('button');
+    deleteButton.id = 'delete_button';
+    deleteButton.classList.add(
+      'bg-highlight',
+      'py-4',
+      'font-text',
+      'font-semibold',
+      'rounded-sm',
+      'w-40',
+      'lg:w-62',
+      'min-w-24',
+      'lg:text-xl',
+    );
+    deleteButton.innerText = 'Delete Listing';
+
+    bidding.appendChild(deleteButton);
+    listingInfo.appendChild(bidding);
+
+    deleteButton.addEventListener('click', () => {
+      // Modal
+
+      const modal = document.createElement('div');
+      modal.classList.add(
+        'fixed',
+        'inset-0',
+        'bg-black',
+        'bg-opacity-75',
+        'flex',
+        'items-center',
+        'justify-center',
+      );
+
+      const modalContent = document.createElement('div');
+      modalContent.classList.add(
+        'bg-white',
+        'p-5',
+        'rounded-md',
+        'flex',
+        'flex-col',
+        'items-center',
+        'gap-5',
+        'mx-5'
+      );
+
+      const modalTitle = document.createElement('h2');
+      modalTitle.classList.add('font-title', 'text-lg', 'lg:text-xl');
+      modalTitle.innerText = 'Are you sure you want to delete this listing?';
+
+      const modalButtons = document.createElement('div');
+      modalButtons.classList.add('flex', 'gap-5');
+
+      const confirmButton = document.createElement('button');
+      confirmButton.classList.add(
+        'bg-highlight',
+        'p-2',
+        'rounded-sm',
+        'w-16',
+        'lg:w-32',
+        'min-w-24',
+        'lg:text-xl',
+      );
+      confirmButton.innerText = 'Confirm';
+
+      const cancelButton = document.createElement('button');
+      cancelButton.classList.add(
+        'bg-black',
+        'text-white',
+        'p-2',
+        'rounded-sm',
+        'w-16',
+        'lg:w-32',
+        'min-w-24',
+        'lg:text-xl',
+      );
+      cancelButton.innerText = 'Cancel';
+
+      modalButtons.append(confirmButton, cancelButton);
+      modalContent.append(modalTitle, modalButtons);
+      modal.appendChild(modalContent);
+      document.body.appendChild(modal);
+
+      confirmButton.addEventListener('click', () => {
+        try {
+        deleteListing(listingID);
+        window.location.href = '/listings/';
+        } catch (error) {
+          console.error(error);
+        }
+      });
+
+      cancelButton.addEventListener('click', () => {
+        modal.remove();
+      });
     });
   }
 
