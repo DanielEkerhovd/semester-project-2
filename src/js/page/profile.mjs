@@ -15,6 +15,10 @@ export default async function profile(loginStatus) {
   const content = await fetchUser(user);
   const profileLists = await fetchUser(user, true);
 
+  // Update title
+
+  document.title = `BIDR | ${user}`;
+
   const listContent = profileLists.data;
 
   const profileContainer = document.getElementById('profile');

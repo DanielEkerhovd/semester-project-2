@@ -22,7 +22,6 @@ console.log(user);
 
 
 switch (currentPath) {
-
     case '/':
     case '/index.html':
         header(loggedIn);
