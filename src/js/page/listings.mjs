@@ -3,7 +3,7 @@ import listCard from '../components/listing/list_card.mjs'
 import loginCheck from '../handlers/misc/login_check.mjs'
 
 export default async function listings() {
-  const allListings = await listingsAPI(100)
+  let allListings = await listingsAPI(100, '', 1)
 
   const listingsContainer = document.getElementById('listings_items')
   const more = document.getElementById('listings_more')
@@ -27,6 +27,7 @@ export default async function listings() {
   const loggedIn = await loginCheck()
 
   let count
+  let page = 1
 
   if (allListings.length >= 20) {
     count = 20
@@ -49,14 +50,39 @@ export default async function listings() {
     moreButton.addEventListener('click', async () => {
       count += 20
 
-      if (count >= allListings.length) {
-        moreButton.style.display = 'none'
+      if (count > allListings.length && allListings.length % 20 === 0) {
+        page++
+        allListings = await listingsAPI(100, '', page)
+        if (allListings === '[]') {
+          more.classList.add('hidden')
+          return
+        }
+        count = 20
+      }
+
+      if (allListings.length < count) {
+        count = allListings.length
+        console.log(allListings);
+        console.log(count);
+
+        const noMore = document.createElement('p')
+        noMore.classList.add(
+          'mx-auto',
+          'my-24',
+          'text-xl',
+          'font-semibold',
+          'font-title',
+          'md:grid-cols-1',
+        )
+        noMore.innerHTML = 'No more listings'
+        more.innerHTML = '';
+        more.appendChild(noMore)
       }
 
       for (let i = count - 20; i < count; i++) {
         const listing = allListings[i]
         if (listing) {
-          const newCard = listCard(listing)
+          const newCard = listCard(listing, loggedIn)
           listingsContainer.appendChild(newCard)
         }
       }
