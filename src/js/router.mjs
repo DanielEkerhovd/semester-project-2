@@ -17,6 +17,10 @@ const loggedIn = await loginCheck();
 
 updateUser();
 
+const user = JSON.parse(localStorage.getItem('profile'));
+
+console.log(user);
+
 
 switch (currentPath) {
 
