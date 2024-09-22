@@ -178,7 +178,6 @@ export default function newListingModal() {
       const input = document.createElement('input');
       input.type = 'text';
       input.name = 'media';
-      input.id = 'media';
       input.placeholder = 'Insert media URL here';
       input.classList.add('rounded-sm', 'px-3', 'h-10', 'rounded-sm', 'w-full');
 

@@ -87,6 +87,20 @@ export default async function createListing() {
         errorBox.appendChild(mediaError);
       }
 
+      let isError = false;
+
+      mediaData.forEach((media) => {
+        if (!media.url) {
+          isError = true;
+        }
+      });
+
+      if (isError) {
+        const mediaError = document.createElement('p');
+        mediaError.textContent = 'Media is required';
+        errorBox.appendChild(mediaError);
+      }
+
       modalContainer.insertBefore(errorBox, modalContainer.childNodes[1]);
     } else {
       const data = {
