@@ -5,9 +5,10 @@ export default async function loginCheck() {
     let status = false;
 
     try {
-        await createKey();
+        await createKey();;
         status = true;
     } catch (error) {
+        console.error(error);
     }
 
     return status;

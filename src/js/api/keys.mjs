@@ -8,7 +8,7 @@ export const USER_REGISTER = `${API_BASE}auth/register`
 // Listings
 
 export const LISTING_BASE = `${API_BASE}auction/listings`
-export const LISTING_PARAM = '?_bids=true&_seller=true&_active=true'
+export const LISTING_PARAM = '_bids=true&_seller=true&_active=true'
 
 // Profile
 

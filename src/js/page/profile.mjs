@@ -39,7 +39,7 @@ export default async function profile(loginStatus) {
     listingsContainer.appendChild(noListings)
   } else {
     listContent.forEach((listing) => {
-      const card = listCard(listing)
+      const card = listCard(listing, loginStatus)
       listingsContainer.appendChild(card)
     })
   };

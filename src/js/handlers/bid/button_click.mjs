@@ -2,6 +2,8 @@ import sendBid from '../../api/listing/bid_listing.mjs';
 
 export default async function buttonClick(bidContainer, bidButton, listing) {;
 
+    const currentPage = window.location.pathname;
+
     let latestBid = 0;
     
     if (listing.bids.length > 0) {
@@ -13,9 +15,15 @@ export default async function buttonClick(bidContainer, bidButton, listing) {;
     // Disable button
     bidButton.disabled = true;
 
-    bidContainer.classList.add('absolute', 'w-full');
-    bidButton.classList.add('grow', 'flex', 'items-center', 'justify-center', 'gap-2');
+    if (currentPage === '/listing/') {
+        bidContainer.classList.add('w-full', 'max-w-80');
+    } else {
+        bidContainer.classList.add('absolute', 'w-full');
+    }
 
+    bidButton.classList.add('grow', 'flex', 'items-center', 'justify-center', 'gap-2', 'transition-all', 'duration-200');
+
+   
     const inputContainer = document.createElement('div');
     inputContainer.classList.add('relative');
 

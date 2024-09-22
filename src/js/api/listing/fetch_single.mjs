@@ -3,7 +3,8 @@
 import { LISTING_BASE, LISTING_PARAM } from '/src/js/api/keys.mjs'
 
 export default async function listingsAPI(id) {
-  let url = `${LISTING_BASE}/${id}${LISTING_PARAM}`
+  let url = `${LISTING_BASE}/${id}?${LISTING_PARAM}`
+  console.log(url);
 
   try {
     const response = await fetch(url)
