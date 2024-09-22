@@ -1,4 +1,4 @@
-# BIDR | semester-project-2
+# BIDR | semester-project-2 (v 1.0.0)
 
 Semesterproject for 3rd semester in Frontend development at Noroff. 
 
