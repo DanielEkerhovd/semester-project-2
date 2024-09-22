@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Unique listing for an item." />
+    <title>BIDR | Listing</title>
+    <link rel="icon" href="../src/media/logo/favicon.png" />
+    <link rel="stylesheet" href="../dist/css/tailwind-output.css" />
+  </head>
+  <body class="bg-bg-color min-h-screen mb-20">
+    <main
+      class="w-full lg:mt-10 xl:max-w-7xl m-auto justify-center items-center flex flex-col gap-5 lg:gap-10 my-5"
+    >
+      <!-- Back button -->
+      <div class="w-11/12 xl:w-full">
+        <a
+          href="javascript:history.back()"
+          class="bg-black flex justify-center items-center w-20 p-1 lg:w-32 lg:p-2"
+        >
+          <p class="text-white font-extra lg:text-xl">back</p>
+        </a>
+      </div>
+      <section id="listing_item"></section>
+    </main>
+    <!-- Hotbar -->
+    <footer></footer>
+    <script type="module" src="../src/js/router.mjs"></script>
+  </body>
+</html>
