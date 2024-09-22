@@ -73,6 +73,7 @@ export default function header(status) {
     'flex',
     'justify-center',
     'items-center',
+    'cursor-pointer',
   );
   const searchIcon = document.createElement('img');
   searchIcon.src = '../src/media/icons/search.png';
@@ -106,7 +107,7 @@ export default function header(status) {
 
     const create = document.createElement('div');
     create.id = 'create_listing_1';
-    create.classList.add('hidden', 'md:block');
+    create.classList.add('hidden', 'md:block', 'cursor-pointer');
     const createIcon = document.createElement('img');
     createIcon.src = '../src/media/icons/hotbar/create-b.png';
     createIcon.alt = 'Create new listing icon';
