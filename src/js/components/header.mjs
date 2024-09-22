@@ -37,7 +37,8 @@ export default function header(status) {
   logo.appendChild(logoImg);
 
   // Search bar
-  const searchBar = document.createElement('div');
+  const searchBar = document.createElement('form');
+  searchBar.id = 'search_form';
   searchBar.classList.add(
     'flex',
     'justify-center',
@@ -62,7 +63,8 @@ export default function header(status) {
     'px-3',
     'bg-input-field',
   );
-  const searchButton = document.createElement('div');
+  const searchButton = document.createElement('button');
+  searchButton.type = 'submit';
   searchButton.id = 'search_button';
   searchButton.classList.add(
     'absolute',

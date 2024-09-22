@@ -1,10 +1,10 @@
 export default function search() {
+  const searchForm = document.getElementById('search_form');
+  const searchInput = document.getElementById('search_input');
 
-    const searchInput = document.getElementById('search_input');
-    const searchButton = document.getElementById('search_button');
-
-    searchButton.addEventListener('click', async () => {
-        const searchValue = searchInput.value;
-        window.location.href = `../listings/?q=${searchValue}`;
-    });
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchValue = searchInput.value;
+    window.location.href = `../listings/?q=${searchValue}`;
+  });
 }
