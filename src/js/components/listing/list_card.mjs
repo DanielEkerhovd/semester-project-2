@@ -7,13 +7,13 @@ const capitalize = (str) => {
 }
 
 export default function listCard(listing, status) {
-  
   if (!listing) {
     return
   }
 
   const cardId = listing.id
   const cardTitle = capitalize(listing.title)
+  const cardOwner = listing.seller.name
 
   const cardMedia = listing.media
   const cardEnd = listing.endsAt
@@ -88,7 +88,7 @@ export default function listCard(listing, status) {
   const bidding = document.createElement('div')
   bidding.classList.add('flex', 'gap-3', 'justify-between', 'transition-all')
 
-  if (status) {
+  if (status && cardOwner !== localStorage.getItem('userName')) {
     // Bid button
     const bidButton = document.createElement('button')
     bidButton.classList.add(
