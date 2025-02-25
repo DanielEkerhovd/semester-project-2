@@ -1,8 +1,8 @@
 # BIDR | semester-project-2 (v 1.0.0)
 
-Semesterproject for 3rd semester in Frontend development at Noroff. 
+![bidr](https://github.com/user-attachments/assets/a57a17fc-c50f-4678-9782-9c4694e6401d)
 
-BIDR is an auction website where users can list items and buy items from other users. 
+Semesterproject for 3rd semester in Frontend development at Noroff. BIDR is an auction website where users can list items and buy items from other users. 
 
 In this project, these technologies have been used:
 - HTML
